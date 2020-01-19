@@ -1,0 +1,816 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     33894,        808]
+NotebookOptionsPosition[     32359,        778]
+NotebookOutlinePosition[     32830,        796]
+CellTagsIndexPosition[     32787,        793]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{"BeginPackage", "[", "\"\<PlotPack`\>\"", "]"}], "\n", 
+ RowBox[{
+  RowBox[{"ComplexListPlot", "::", "usage"}], " ", "=", " ", 
+  "\"\<ComplexListPlot[v_List,xLabel_String,yLabel_String,opts___] Plots real \
+and imaginary parts of \\\na complex curve from a list v of the form:v={{x\\_\
+\\(1\\),y\\_\\(1\\)},{x\\_\\(2\\),y\\_\\(2\\)}...}. It uses the built in \
+function \\\nListPlot. Standard graphics options can be included\>\""}], "\n", 
+ RowBox[{
+  RowBox[{"ComplexListPointPlot", "::", "usage"}], " ", "=", " ", 
+  "\"\<ComplexListPlot[v_List,xLabel_String,yLabel_String,opts___] Plots real \
+and imaginary \\\nparts of a complex curve from a list v of the form:v={{x\\_\
+\\(1\\),y\\_\\(1\\)},{x\\_\\(2\\),y\\_\\(2\\)}...}. It uses the built in \\\n\
+function ListPlot. Same as ComplexListPlot but points are not joined\>\""}], \
+"\n", 
+ RowBox[{
+  RowBox[{"ComplexVectorListPlot", "::", "usage"}], " ", "=", " ", 
+  "\"\<ComplexVectorListPlot[v_List,xLabel_String,yLabel_String,opts___] \
+Plots real and \\\nimaginary parts of a family of complex curves from a list \
+v of the form: v= \\\n\
+{{x1,y1[1],y1[2],...y1[N]},{x2,y2[1],y2[2],...y2[N]},...}.  It uses the  \
+built-in function ListPlot.   Standard \\\ngraphics options can be included\>\
+\""}], "\n", 
+ RowBox[{
+  RowBox[{"VectorListPlot", "::", "usage"}], " ", "=", " ", 
+  "\"\<ComplexVectorListPlot[v_List,xLabel_String,yLabel_String,opts___] \
+Plots family of n curves \\\nfrom a list v of the form v= \
+{{x1,y1[1],y1[2],...y1[N]},{x2,y2[1],y2[2],...y2[N]},...}. It uses the \
+built-in function \\\nListPlot. Standard graphics options can be \
+included\>\""}], "\n", 
+ RowBox[{
+  RowBox[{"ZeroContourPlot", "::", "usage"}], " ", "=", " ", 
+  "\"\<ZeroContourPlot[v_List,xRange_List,yRange_List,opts___] Plots the \
+Re[v]=0 (->red) and Im[v]=0 \\\n(->blue)contours for  a rectangular MxN array \
+of complex numbers,v.   Useful for finding the zeros of a function of a \\\n\
+real variable z. The form of v is: \
+{{v[x1,y1},v[x1,y2]...,v[x1,yN]},{v[x2,y1],v{x2,y2}....}, \
+{v[xM,y1]....,v[xM,yN]}}.  \\\n In other words y<->[imaginary part] varies \
+most rapidly.   xRange and yRange are lists of the form: {xmin,xmax} for \\\n\
+labeling the axes\>\""}], "\n", 
+ RowBox[{
+  RowBox[{"ComplexZeroContourPlot", "::", "usage"}], " ", "=", " ", 
+  "\"\<ComplexZeroContourPlot[v_List,xRange_List,yRange_List,opts___] Plots \
+the Re[v]=0 \\\n(->red) and Im[v]=0 (->blue)contours for  a rectangular MxN \
+array of complex numbers,v.   Useful for finding the zeros \\\nof a function \
+of a complex variable z. The form of v is: \
+{{v[x1,y1},v[x1,y2]...,v[x1,yN]},{v[x2,y1],v{x2,y2}....}, \\\n\
+{v[xM,y1]....,v[xM,yN]}}.   In other words y<->[imaginary part] varies most \
+rapidly.   xRange and yRange are lists of \\\nthe form: {xmin,xmax} for \
+labeling the axes\>\""}], "\n", 
+ RowBox[{
+  RowBox[{"rootSort", "::", "usage"}], " ", "=", " ", 
+  "\"\<rootSort[v_List] Sorts lists of \
+form{{x1,roots1},{x2,roots2}....{xn,rootsn}} so as to try to \\\nmaintain \
+continuity of roots.\>\""}], "\n", 
+ RowBox[{
+  RowBox[{"paramPrint", "::", "usage"}], " ", "=", " ", 
+  "\"\<paramPrint[x_List] gives a convenient way of printing a list of \
+parameters just by passing a list \\\nof the symbol names whose names and \
+values are to be printed\>\""}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"SetAttributes", "[", 
+    RowBox[{"PlotPack`paramPrint", ",", " ", "HoldAll"}], "]"}], ";"}], 
+  " "}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"SetAttributes", "[", 
+    RowBox[{"PlotPack`paramPrintf", ",", " ", "HoldAll"}], "]"}], ";"}], 
+  " "}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"SetAttributes", "[", 
+    RowBox[{"PlotPack`myPrint", ",", " ", "HoldAll"}], "]"}], ";"}], 
+  " "}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"myPrint", "[", "x_", "]"}], " ", ":=", " ", 
+    RowBox[{"Print", "[", 
+     RowBox[{
+      RowBox[{"ToString", "[", 
+       RowBox[{"HoldForm", "[", "x", "]"}], "]"}], ",", " ", "\"\<=\>\"", ",",
+       " ", 
+      RowBox[{"Evaluate", "[", "x", "]"}]}], "]"}]}], ";"}], " "}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"paramPrintf", "[", "x_List", "]"}], " ", ":=", " ", 
+    RowBox[{"Thread", "[", 
+     RowBox[{
+      RowBox[{"Hold", "[", "x", "]"}], ",", " ", "List"}], "]"}]}], ";"}], 
+  " "}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"paramPrint", "[", "x_List", "]"}], " ", ":=", " ", 
+    RowBox[{"Apply", "[", 
+     RowBox[{"myPrint", ",", " ", 
+      RowBox[{"paramPrintf", "[", "x", "]"}], ",", " ", "1"}], "]"}]}], ";"}],
+   " "}], "\n", 
+ RowBox[{"Begin", "[", "\"\<`Private`\>\"", "]"}], "\n", 
+ RowBox[{
+  RowBox[{"ComplexListPlot", "[", 
+   RowBox[{
+   "v_List", ",", " ", "xLabel_String", ",", " ", "yLabel_String", ",", " ", 
+    "opts___"}], "]"}], " ", ":=", " ", "\n", "  ", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"rev", ",", " ", "imv"}], "}"}], ",", " ", 
+    RowBox[{
+     RowBox[{"rev", " ", "=", " ", 
+      RowBox[{"Re", "[", 
+       RowBox[{
+        RowBox[{"Transpose", "[", "v", "]"}], "[", 
+        RowBox[{"[", "2", "]"}], "]"}], "]"}]}], ";", " ", 
+     RowBox[{"imv", " ", "=", " ", 
+      RowBox[{"Im", "[", 
+       RowBox[{
+        RowBox[{"Transpose", "[", "v", "]"}], "[", 
+        RowBox[{"[", "2", "]"}], "]"}], "]"}]}], ";", " ", "\n", "    ", 
+     RowBox[{"Show", "[", 
+      RowBox[{
+       RowBox[{"ListPlot", "[", 
+        RowBox[{
+         RowBox[{"Transpose", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"Transpose", "[", "v", "]"}], "[", 
+             RowBox[{"[", "1", "]"}], "]"}], ",", " ", "rev"}], "}"}], "]"}], 
+         ",", " ", 
+         RowBox[{"PlotJoined", " ", "->", " ", "True"}], ",", " ", 
+         RowBox[{"AxesLabel", " ", "->", " ", 
+          RowBox[{"{", 
+           RowBox[{"xLabel", ",", " ", "yLabel"}], "}"}]}], ",", " ", "\n", 
+         "      ", 
+         RowBox[{"PlotStyle", " ", "->", " ", 
+          RowBox[{"Thickness", "[", "0.003", "]"}]}], ",", " ", 
+         RowBox[{"DisplayFunction", " ", "->", " ", "Identity"}]}], "]"}], 
+       ",", " ", 
+       RowBox[{"ListPlot", "[", 
+        RowBox[{
+         RowBox[{"Transpose", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"Transpose", "[", "v", "]"}], "[", 
+             RowBox[{"[", "1", "]"}], "]"}], ",", " ", "imv"}], "}"}], "]"}], 
+         ",", " ", "\n", "      ", 
+         RowBox[{"PlotJoined", " ", "->", " ", "True"}], ",", " ", 
+         RowBox[{"DisplayFunction", " ", "->", " ", "Identity"}], ",", " ", 
+         RowBox[{"PlotStyle", " ", "->", " ", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Thickness", "[", "0.003", "]"}], ",", " ", 
+            RowBox[{"RGBColor", "[", 
+             RowBox[{"0", ",", " ", "0", ",", " ", "1"}], "]"}], ",", " ", 
+            "\n", "        ", 
+            RowBox[{"Dashing", "[", 
+             RowBox[{"{", 
+              RowBox[{"0.05", ",", " ", "0.02"}], "}"}], "]"}]}], "}"}]}]}], 
+        "]"}], ",", " ", "opts", ",", " ", 
+       RowBox[{"DisplayFunction", " ", "->", " ", "$DisplayFunction"}]}], 
+      "]"}]}]}], "]"}]}], "\n", 
+ RowBox[{
+  RowBox[{"ComplexListPointPlot", "[", 
+   RowBox[{
+   "v_List", ",", " ", "xLabel_String", ",", " ", "yLabel_String", ",", " ", 
+    "opts___"}], "]"}], " ", ":=", " ", "\n", "  ", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"rev", ",", " ", "imv"}], "}"}], ",", " ", 
+    RowBox[{
+     RowBox[{"rev", " ", "=", " ", 
+      RowBox[{"Re", "[", 
+       RowBox[{
+        RowBox[{"Transpose", "[", "v", "]"}], "[", 
+        RowBox[{"[", "2", "]"}], "]"}], "]"}]}], ";", " ", 
+     RowBox[{"imv", " ", "=", " ", 
+      RowBox[{"Im", "[", 
+       RowBox[{
+        RowBox[{"Transpose", "[", "v", "]"}], "[", 
+        RowBox[{"[", "2", "]"}], "]"}], "]"}]}], ";", " ", "\n", "    ", 
+     RowBox[{"Show", "[", 
+      RowBox[{
+       RowBox[{"ListPlot", "[", 
+        RowBox[{
+         RowBox[{"Transpose", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"Transpose", "[", "v", "]"}], "[", 
+             RowBox[{"[", "1", "]"}], "]"}], ",", " ", "rev"}], "}"}], "]"}], 
+         ",", " ", 
+         RowBox[{"PlotJoined", " ", "->", " ", "False"}], ",", " ", 
+         RowBox[{"AxesLabel", " ", "->", " ", 
+          RowBox[{"{", 
+           RowBox[{"xLabel", ",", " ", "yLabel"}], "}"}]}], ",", " ", "\n", 
+         "      ", 
+         RowBox[{"PlotStyle", " ", "->", " ", 
+          RowBox[{"Thickness", "[", "0.003", "]"}]}], ",", " ", 
+         RowBox[{"DisplayFunction", " ", "->", " ", "Identity"}]}], "]"}], 
+       ",", " ", 
+       RowBox[{"ListPlot", "[", 
+        RowBox[{
+         RowBox[{"Transpose", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"Transpose", "[", "v", "]"}], "[", 
+             RowBox[{"[", "1", "]"}], "]"}], ",", " ", "imv"}], "}"}], "]"}], 
+         ",", " ", "\n", "      ", 
+         RowBox[{"PlotJoined", " ", "->", " ", "False"}], ",", " ", 
+         RowBox[{"DisplayFunction", " ", "->", " ", "Identity"}], ",", " ", 
+         RowBox[{"PlotStyle", " ", "->", " ", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Thickness", "[", "0.003", "]"}], ",", " ", 
+            RowBox[{"RGBColor", "[", 
+             RowBox[{"0", ",", " ", "0", ",", " ", "1"}], "]"}]}], "}"}]}]}], 
+        "]"}], ",", " ", "opts", ",", " ", "\n", "     ", 
+       RowBox[{"DisplayFunction", " ", "->", " ", "$DisplayFunction"}]}], 
+      "]"}]}]}], "]"}]}], "\n", 
+ RowBox[{
+  RowBox[{"ComplexVectorListPlot", "[", 
+   RowBox[{
+   "v_List", ",", " ", "xLabel_String", ",", " ", "yLabel_String", ",", " ", 
+    "opts___"}], "]"}], " ", ":=", " ", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+     "n", ",", " ", "xv", ",", " ", "yv", ",", " ", "vt", ",", " ", "nPts", 
+      ",", " ", "color", ",", " ", "g"}], "}"}], ",", " ", "\n", "   ", 
+    RowBox[{
+     RowBox[{"n", " ", "=", " ", 
+      RowBox[{
+       RowBox[{"Length", "[", 
+        RowBox[{"v", "[", 
+         RowBox[{"[", "1", "]"}], "]"}], "]"}], " ", "-", " ", "1"}]}], ";", 
+     " ", 
+     RowBox[{"vt", " ", "=", " ", 
+      RowBox[{"Transpose", "[", "v", "]"}]}], ";", " ", 
+     RowBox[{"xv", " ", "=", " ", 
+      RowBox[{"vt", "[", 
+       RowBox[{"[", "1", "]"}], "]"}]}], ";", " ", 
+     RowBox[{"nPts", " ", "=", " ", 
+      RowBox[{"Length", "[", "xv", "]"}]}], ";", " ", "\n", "    ", 
+     RowBox[{"color", " ", "=", " ", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"RGBColor", "[", 
+         RowBox[{"0", ",", " ", "0.8", ",", " ", "0"}], "]"}], ",", " ", 
+        RowBox[{"RGBColor", "[", 
+         RowBox[{"0", ",", " ", "0", ",", " ", "0"}], "]"}], ",", " ", 
+        RowBox[{"RGBColor", "[", 
+         RowBox[{"0", ",", " ", "0", ",", " ", "1"}], "]"}], ",", " ", 
+        RowBox[{"RGBColor", "[", 
+         RowBox[{"1", ",", " ", "0", ",", " ", "0"}], "]"}], ",", " ", 
+        RowBox[{"RGBColor", "[", 
+         RowBox[{"1.", ",", " ", "0.4", ",", " ", "0."}], "]"}], ",", " ", 
+        "\n", "      ", 
+        RowBox[{"RGBColor", "[", 
+         RowBox[{"0.6", ",", " ", "0.", ",", " ", "0.5"}], "]"}]}], "}"}]}], 
+     ";", " ", 
+     RowBox[{"g", " ", "=", " ", 
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"i0", " ", "=", " ", 
+          RowBox[{
+           RowBox[{"Mod", "[", 
+            RowBox[{"i", ",", " ", "6"}], "]"}], " ", "+", " ", "1"}]}], ";", 
+         " ", 
+         RowBox[{"vr", " ", "=", " ", 
+          RowBox[{"Re", "[", 
+           RowBox[{"vt", "[", 
+            RowBox[{"[", 
+             RowBox[{"i", " ", "+", " ", "1"}], "]"}], "]"}], "]"}]}], ";", 
+         " ", 
+         RowBox[{"vi", " ", "=", " ", 
+          RowBox[{"Im", "[", 
+           RowBox[{"vt", "[", 
+            RowBox[{"[", 
+             RowBox[{"i", " ", "+", " ", "1"}], "]"}], "]"}], "]"}]}], ";", 
+         " ", "\n", "       ", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"ListPlot", "[", 
+            RowBox[{
+             RowBox[{"Transpose", "[", 
+              RowBox[{"{", 
+               RowBox[{"xv", ",", " ", "vr"}], "}"}], "]"}], ",", " ", 
+             RowBox[{"PlotJoined", " ", "->", " ", "True"}], ",", " ", 
+             RowBox[{"AxesLabel", " ", "->", " ", 
+              RowBox[{"{", 
+               RowBox[{"xLabel", ",", " ", "yLabel"}], "}"}]}], ",", " ", 
+             "\n", "         ", 
+             RowBox[{"PlotStyle", " ", "->", " ", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"Thickness", "[", "0.003", "]"}], ",", " ", 
+                RowBox[{"color", "[", 
+                 RowBox[{"[", "i0", "]"}], "]"}], ",", " ", 
+                RowBox[{"Dashing", "[", 
+                 RowBox[{"{", "}"}], "]"}]}], "}"}]}], ",", " ", "opts", ",", 
+             " ", 
+             RowBox[{"DisplayFunction", " ", "->", " ", "Identity"}]}], "]"}],
+            ",", " ", "\n", "        ", 
+           RowBox[{"ListPlot", "[", 
+            RowBox[{
+             RowBox[{"Transpose", "[", 
+              RowBox[{"{", 
+               RowBox[{"xv", ",", " ", "vi"}], "}"}], "]"}], ",", " ", 
+             RowBox[{"PlotJoined", " ", "->", " ", "True"}], ",", " ", 
+             RowBox[{"AxesLabel", " ", "->", " ", 
+              RowBox[{"{", 
+               RowBox[{"xLabel", ",", " ", "yLabel"}], "}"}]}], ",", " ", 
+             "\n", "         ", 
+             RowBox[{"PlotStyle", " ", "->", " ", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"Thickness", "[", "0.003", "]"}], ",", " ", 
+                RowBox[{"color", "[", 
+                 RowBox[{"[", "i0", "]"}], "]"}], ",", " ", 
+                RowBox[{"Dashing", "[", 
+                 RowBox[{"{", 
+                  RowBox[{"0.02", ",", " ", "0.02"}], "}"}], "]"}]}], "}"}]}],
+              ",", " ", "opts", ",", " ", 
+             RowBox[{"DisplayFunction", " ", "->", " ", "Identity"}]}], 
+            "]"}]}], "}"}]}], ",", " ", "\n", "      ", 
+        RowBox[{"{", 
+         RowBox[{"i", ",", " ", "1", ",", " ", "n"}], "}"}]}], "]"}]}], ";", 
+     " ", 
+     RowBox[{"Show", "[", 
+      RowBox[{"g", ",", " ", 
+       RowBox[{"DisplayFunction", " ", "->", " ", "$DisplayFunction"}]}], 
+      "]"}]}]}], "]"}]}], "\n", 
+ RowBox[{
+  RowBox[{"VectorListPlot", "[", 
+   RowBox[{
+   "v_List", ",", " ", "xLabel_String", ",", " ", "yLabel_String", ",", " ", 
+    "opts___"}], "]"}], " ", ":=", " ", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+     "n", ",", " ", "xv", ",", " ", "yv", ",", " ", "vt", ",", " ", "nPts", 
+      ",", " ", "style", ",", " ", "g"}], "}"}], ",", " ", "\n", "   ", 
+    RowBox[{
+     RowBox[{"n", " ", "=", " ", 
+      RowBox[{
+       RowBox[{"Length", "[", 
+        RowBox[{"v", "[", 
+         RowBox[{"[", "1", "]"}], "]"}], "]"}], " ", "-", " ", "1"}]}], ";", 
+     " ", 
+     RowBox[{"vt", " ", "=", " ", 
+      RowBox[{"Transpose", "[", "v", "]"}]}], ";", " ", 
+     RowBox[{"xv", " ", "=", " ", 
+      RowBox[{"vt", "[", 
+       RowBox[{"[", "1", "]"}], "]"}]}], ";", " ", 
+     RowBox[{"nPts", " ", "=", " ", 
+      RowBox[{"Length", "[", "xv", "]"}]}], ";", " ", "\n", "    ", 
+     RowBox[{"style", " ", "=", " ", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"Thickness", "[", "0.003", "]"}], ",", " ", 
+          RowBox[{"RGBColor", "[", 
+           RowBox[{"0", ",", " ", "0.5", ",", " ", "0"}], "]"}], ",", " ", 
+          RowBox[{"Dashing", "[", 
+           RowBox[{"{", 
+            RowBox[{"0.1", ",", " ", "0.02"}], "}"}], "]"}]}], "}"}], ",", 
+        " ", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"Thickness", "[", "0.003", "]"}], ",", " ", 
+          RowBox[{"RGBColor", "[", 
+           RowBox[{"0", ",", " ", "0", ",", " ", "0"}], "]"}]}], "}"}], ",", 
+        " ", "\n", "      ", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"Thickness", "[", "0.003", "]"}], ",", " ", 
+          RowBox[{"RGBColor", "[", 
+           RowBox[{"0", ",", " ", "0", ",", " ", "1"}], "]"}], ",", " ", 
+          RowBox[{"Dashing", "[", 
+           RowBox[{"{", 
+            RowBox[{"0.02", ",", " ", "0.02"}], "}"}], "]"}]}], "}"}], ",", 
+        " ", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"Thickness", "[", "0.003", "]"}], ",", " ", 
+          RowBox[{"RGBColor", "[", 
+           RowBox[{"1", ",", " ", "0", ",", " ", "0"}], "]"}], ",", " ", "\n",
+           "       ", 
+          RowBox[{"Dashing", "[", 
+           RowBox[{"{", 
+            RowBox[{"0.1", ",", " ", "0.02"}], "}"}], "]"}]}], "}"}], ",", 
+        " ", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"Thickness", "[", "0.003", "]"}], ",", " ", 
+          RowBox[{"RGBColor", "[", 
+           RowBox[{"0", ",", " ", "0.5", ",", " ", "0"}], "]"}], ",", " ", 
+          RowBox[{"Dashing", "[", 
+           RowBox[{"{", 
+            RowBox[{"0.1", ",", " ", "0.02"}], "}"}], "]"}]}], "}"}]}], 
+       "}"}]}], ";", " ", "\n", "    ", 
+     RowBox[{"g", " ", "=", " ", 
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"i0", " ", "=", " ", 
+          RowBox[{
+           RowBox[{"Mod", "[", 
+            RowBox[{"i", ",", " ", "4"}], "]"}], " ", "+", " ", "1"}]}], ";", 
+         " ", 
+         RowBox[{"ListPlot", "[", 
+          RowBox[{
+           RowBox[{"Transpose", "[", 
+            RowBox[{"{", 
+             RowBox[{"xv", ",", " ", 
+              RowBox[{"vt", "[", 
+               RowBox[{"[", 
+                RowBox[{"i", " ", "+", " ", "1"}], "]"}], "]"}]}], "}"}], 
+            "]"}], ",", " ", 
+           RowBox[{"PlotJoined", " ", "->", " ", "True"}], ",", " ", "\n", 
+           "        ", 
+           RowBox[{"AxesLabel", " ", "->", " ", 
+            RowBox[{"{", 
+             RowBox[{"xLabel", ",", " ", "yLabel"}], "}"}]}], ",", " ", 
+           RowBox[{"PlotStyle", " ", "->", " ", 
+            RowBox[{"style", "[", 
+             RowBox[{"[", "i0", "]"}], "]"}]}], ",", " ", "opts", ",", " ", 
+           RowBox[{"DisplayFunction", " ", "->", " ", "Identity"}]}], "]"}]}],
+         ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"i", ",", " ", "1", ",", " ", "n"}], "}"}]}], "]"}]}], ";", 
+     " ", "\n", "    ", 
+     RowBox[{"Show", "[", 
+      RowBox[{"g", ",", " ", 
+       RowBox[{"DisplayFunction", " ", "->", " ", "$DisplayFunction"}]}], 
+      "]"}]}]}], "]"}]}], "\n", 
+ RowBox[{
+  RowBox[{"ZeroContourPlot", "[", 
+   RowBox[{
+   "v_List", ",", " ", "xRange_List", ",", " ", "yRange_List", ",", " ", 
+    "opts___"}], "]"}], " ", ":=", " ", "\n", "  ", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"range", ",", " ", "gr"}], "}"}], ",", " ", 
+    RowBox[{
+     RowBox[{"range", " ", "=", " ", 
+      RowBox[{"{", 
+       RowBox[{"xRange", ",", " ", "yRange"}], "}"}]}], ";", " ", 
+     RowBox[{"gr", " ", "=", " ", 
+      RowBox[{"ListContourPlot", "[", 
+       RowBox[{"v", ",", " ", 
+        RowBox[{"MeshRange", " ", "->", " ", "range"}], ",", " ", 
+        RowBox[{"Contours", " ", "->", " ", 
+         RowBox[{"{", "0.", "}"}]}], ",", " ", "\n", "      ", 
+        RowBox[{"ContourShading", " ", "->", " ", "False"}], ",", " ", 
+        RowBox[{"ContourStyle", " ", "->", " ", 
+         RowBox[{"RGBColor", "[", 
+          RowBox[{"1.", ",", " ", "0.", ",", " ", "0."}], "]"}]}], ",", " ", 
+        "opts", ",", " ", 
+        RowBox[{"DisplayFunction", " ", "->", " ", "Identity"}]}], "]"}]}], 
+     ";", " ", "\n", "    ", 
+     RowBox[{"Show", "[", 
+      RowBox[{"gr", ",", " ", 
+       RowBox[{"DisplayFunction", " ", "->", " ", "$DisplayFunction"}]}], 
+      "]"}]}]}], "]"}]}], "\n", 
+ RowBox[{
+  RowBox[{"ComplexZeroContourPlot", "[", 
+   RowBox[{
+   "v_List", ",", " ", "xRange_List", ",", " ", "yRange_List", ",", " ", 
+    "opts___"}], "]"}], " ", ":=", " ", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+     "range", ",", " ", "vreal", ",", " ", "vimag", ",", " ", "gr", ",", " ", 
+      "gi"}], "}"}], ",", " ", "\n", "   ", 
+    RowBox[{
+     RowBox[{"vreal", " ", "=", " ", 
+      RowBox[{"Re", "[", "v", "]"}]}], ";", " ", 
+     RowBox[{"vimag", " ", "=", " ", 
+      RowBox[{"Im", "[", "v", "]"}]}], ";", " ", 
+     RowBox[{"range", " ", "=", " ", 
+      RowBox[{"{", 
+       RowBox[{"xRange", ",", " ", "yRange"}], "}"}]}], ";", " ", 
+     RowBox[{"gr", " ", "=", " ", 
+      RowBox[{"ListContourPlot", "[", 
+       RowBox[{"vreal", ",", " ", 
+        RowBox[{"MeshRange", " ", "->", " ", "range"}], ",", " ", "\n", 
+        "      ", 
+        RowBox[{"Contours", " ", "->", " ", 
+         RowBox[{"{", "0.", "}"}]}], ",", " ", 
+        RowBox[{"ContourShading", " ", "->", " ", "False"}], ",", " ", 
+        RowBox[{"ContourStyle", " ", "->", " ", 
+         RowBox[{"RGBColor", "[", 
+          RowBox[{"1.", ",", " ", "0.", ",", " ", "0."}], "]"}]}], ",", " ", 
+        "opts", ",", " ", "\n", "      ", 
+        RowBox[{"DisplayFunction", " ", "->", " ", "Identity"}]}], "]"}]}], 
+     ";", " ", 
+     RowBox[{"gi", " ", "=", " ", 
+      RowBox[{"ListContourPlot", "[", 
+       RowBox[{"vimag", ",", " ", 
+        RowBox[{"MeshRange", " ", "->", " ", "range"}], ",", " ", 
+        RowBox[{"Contours", " ", "->", " ", 
+         RowBox[{"{", "0.", "}"}]}], ",", " ", "\n", "      ", 
+        RowBox[{"ContourShading", " ", "->", " ", "False"}], ",", " ", 
+        RowBox[{"ContourStyle", " ", "->", " ", 
+         RowBox[{"RGBColor", "[", 
+          RowBox[{"0.", ",", " ", "0.", ",", " ", "1."}], "]"}]}], ",", " ", 
+        RowBox[{"opts", ";", " ", 
+         RowBox[{"DisplayFunction", " ", "->", " ", "Identity"}]}]}], "]"}]}],
+      ";", " ", "\n", "    ", 
+     RowBox[{"Show", "[", 
+      RowBox[{"gr", ",", " ", "gi", ",", " ", 
+       RowBox[{"DisplayFunction", " ", "->", " ", "$DisplayFunction"}]}], 
+      "]"}]}]}], "]"}]}], "\n", 
+ RowBox[{
+  RowBox[{"rootSort", "[", "v_List", "]"}], " ", ":=", " ", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+     "t", ",", " ", "tx", ",", " ", "tr", ",", " ", "t0", ",", " ", "vout"}], 
+     "}"}], ",", " ", 
+    RowBox[{
+     RowBox[{"t", " ", "=", " ", 
+      RowBox[{"Transpose", "[", "v", "]"}]}], ";", " ", 
+     RowBox[{"tx", " ", "=", " ", 
+      RowBox[{"First", "[", "t", "]"}]}], ";", " ", 
+     RowBox[{"tr", " ", "=", " ", 
+      RowBox[{"Transpose", "[", 
+       RowBox[{"Rest", "[", "t", "]"}], "]"}]}], ";", " ", "\n", "    ", 
+     RowBox[{"t0", " ", "=", " ", 
+      RowBox[{"continue", "[", "tr", "]"}]}], ";", " ", 
+     RowBox[{"vout", " ", "=", " ", 
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{"Prepend", "[", 
+         RowBox[{
+          RowBox[{"t0", "[", 
+           RowBox[{"[", "i", "]"}], "]"}], ",", " ", 
+          RowBox[{"tx", "[", 
+           RowBox[{"[", "i", "]"}], "]"}]}], "]"}], ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"i", ",", " ", "1", ",", " ", 
+          RowBox[{"Length", "[", "tx", "]"}]}], "}"}]}], "]"}]}], ";", " ", 
+     "vout"}]}], "]"}]}], "\n", 
+ RowBox[{
+  RowBox[{"continue", "[", "vin_List", "]"}], " ", ":=", " ", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"n", ",", " ", "vout"}], "}"}], ",", " ", 
+    RowBox[{
+     RowBox[{"n", " ", "=", " ", 
+      RowBox[{"Length", "[", "vin", "]"}]}], ";", " ", 
+     RowBox[{"vout", " ", "=", " ", 
+      RowBox[{"Array", "[", 
+       RowBox[{"cont", ",", " ", "n"}], "]"}]}], ";", " ", 
+     RowBox[{
+      RowBox[{"vout", "[", 
+       RowBox[{"[", "1", "]"}], "]"}], " ", "=", " ", 
+      RowBox[{"vin", "[", 
+       RowBox[{"[", "1", "]"}], "]"}]}], ";", " ", "\n", "    ", 
+     RowBox[{"Do", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"vout", "[", 
+         RowBox[{"[", "i", "]"}], "]"}], " ", "=", " ", 
+        RowBox[{"cSort", "[", 
+         RowBox[{
+          RowBox[{"vout", "[", 
+           RowBox[{"[", 
+            RowBox[{"i", " ", "-", " ", "1"}], "]"}], "]"}], ",", " ", 
+          RowBox[{"vin", "[", 
+           RowBox[{"[", "i", "]"}], "]"}]}], "]"}]}], ",", " ", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", " ", "2", ",", " ", "n"}], "}"}]}], "]"}], ";", " ",
+      "vout"}]}], "]"}]}], "\n", 
+ RowBox[{
+  RowBox[{"cSort", "[", 
+   RowBox[{"v1_List", ",", " ", "v2_List"}], "]"}], " ", ":=", " ", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+     "n", ",", " ", "v", ",", " ", "vtemp", ",", " ", "ref", ",", " ", "dt", 
+      ",", " ", "i0"}], "}"}], ",", " ", 
+    RowBox[{
+     RowBox[{"n", " ", "=", " ", 
+      RowBox[{"Length", "[", "v1", "]"}]}], ";", " ", 
+     RowBox[{"v", " ", "=", " ", 
+      RowBox[{"Array", "[", 
+       RowBox[{"cSort", ",", " ", "n"}], "]"}]}], ";", " ", 
+     RowBox[{"vtemp", " ", "=", " ", "v2"}], ";", " ", "\n", "    ", 
+     RowBox[{"Do", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"ref", " ", "=", " ", 
+         RowBox[{"v1", "[", 
+          RowBox[{"[", "i", "]"}], "]"}]}], ";", " ", 
+        RowBox[{"dt", " ", "=", " ", 
+         RowBox[{"Table", "[", 
+          RowBox[{
+           RowBox[{"Abs", "[", 
+            RowBox[{"ref", " ", "-", " ", 
+             RowBox[{"vtemp", "[", 
+              RowBox[{"[", "j", "]"}], "]"}]}], "]"}], ",", " ", 
+           RowBox[{"{", 
+            RowBox[{"j", ",", " ", "1", ",", " ", "n"}], "}"}]}], "]"}]}], 
+        ";", " ", 
+        RowBox[{"min", " ", "=", " ", 
+         RowBox[{
+          RowBox[{"Sort", "[", "dt", "]"}], "[", 
+          RowBox[{"[", "1", "]"}], "]"}]}], ";", " ", "\n", "      ", 
+        RowBox[{"i0", " ", "=", " ", 
+         RowBox[{
+          RowBox[{"Flatten", "[", 
+           RowBox[{"Position", "[", 
+            RowBox[{"dt", ",", " ", "min"}], "]"}], "]"}], "[", 
+          RowBox[{"[", "1", "]"}], "]"}]}], ";", " ", 
+        RowBox[{
+         RowBox[{"v", "[", 
+          RowBox[{"[", "i", "]"}], "]"}], " ", "=", " ", 
+         RowBox[{"v2", "[", 
+          RowBox[{"[", "i0", "]"}], "]"}]}], ";", " ", 
+        RowBox[{
+         RowBox[{"vtemp", "[", 
+          RowBox[{"[", "i0", "]"}], "]"}], " ", "=", " ", "Infinity"}]}], ",",
+        " ", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", " ", "1", ",", " ", "n"}], "}"}]}], "]"}], ";", " ",
+      "v"}]}], "]"}]}], "\n", 
+ RowBox[{"End", "[", "]"}], "\n", 
+ RowBox[{"EndPackage", "[", "]"}]}], "Input",
+ PageWidth->Infinity,
+ InitializationCell->True,
+ CellChangeTimes->{{3.786020055619506*^9, 3.7860200631363077`*^9}, 
+   3.786020138961617*^9},
+ ShowSpecialCharacters->False,
+ FormatType->
+  "InputForm",ExpressionUUID->"287d2f60-ba54-4142-9dc1-e1e5a5eb77f8"],
+
+Cell[BoxData["\<\"PlotPack`\"\>"], "Output",
+ CellChangeTimes->{{3.7860200556997013`*^9, 3.78602006321039*^9}, 
+   3.786020139032638*^9, {3.786020451346039*^9, 
+   3.786020451639295*^9}},ExpressionUUID->"f96110ff-b416-4d35-8d6e-\
+87adf352de33"],
+
+Cell[BoxData["\<\"ComplexListPlot[v_List,xLabel_String,yLabel_String,opts___] \
+Plots real and imaginary parts of a complex curve from a list v of the \
+form:v={{x\\_\\(1\\),y\\_\\(1\\)},{x\\_\\(2\\),y\\_\\(2\\)}...}. It uses the \
+built in function ListPlot. Standard graphics options can be included\"\>"], \
+"Output",
+ CellChangeTimes->{{3.7860200556997013`*^9, 3.78602006321039*^9}, 
+   3.786020139032638*^9, {3.786020451346039*^9, 
+   3.78602045164557*^9}},ExpressionUUID->"7dcab6c1-35f6-4cce-bf33-\
+c46c1e3547e7"],
+
+Cell[BoxData["\<\"ComplexListPlot[v_List,xLabel_String,yLabel_String,opts___] \
+Plots real and imaginary parts of a complex curve from a list v of the \
+form:v={{x\\_\\(1\\),y\\_\\(1\\)},{x\\_\\(2\\),y\\_\\(2\\)}...}. It uses the \
+built in function ListPlot. Same as ComplexListPlot but points are not joined\
+\"\>"], "Output",
+ CellChangeTimes->{{3.7860200556997013`*^9, 3.78602006321039*^9}, 
+   3.786020139032638*^9, {3.786020451346039*^9, 
+   3.786020451650316*^9}},ExpressionUUID->"5adb2026-dae1-48bf-b093-\
+baa70475c7a6"],
+
+Cell[BoxData["\<\"ComplexVectorListPlot[v_List,xLabel_String,yLabel_String,\
+opts___] Plots real and imaginary parts of a family of complex curves from a \
+list v of the form: v= \
+{{x1,y1[1],y1[2],...y1[N]},{x2,y2[1],y2[2],...y2[N]},...}.  It uses the  \
+built-in function ListPlot.   Standard graphics options can be \
+included\"\>"], "Output",
+ CellChangeTimes->{{3.7860200556997013`*^9, 3.78602006321039*^9}, 
+   3.786020139032638*^9, {3.786020451346039*^9, 
+   3.786020451655006*^9}},ExpressionUUID->"405f5aab-0649-4a9e-8fac-\
+3e541ac90606"],
+
+Cell[BoxData["\<\"ComplexVectorListPlot[v_List,xLabel_String,yLabel_String,\
+opts___] Plots family of n curves from a list v of the form v= \
+{{x1,y1[1],y1[2],...y1[N]},{x2,y2[1],y2[2],...y2[N]},...}. It uses the \
+built-in function ListPlot. Standard graphics options can be included\"\>"], \
+"Output",
+ CellChangeTimes->{{3.7860200556997013`*^9, 3.78602006321039*^9}, 
+   3.786020139032638*^9, {3.786020451346039*^9, 
+   3.786020451659651*^9}},ExpressionUUID->"e7b21f69-d250-4e48-a1d9-\
+b69d3ce9597b"],
+
+Cell[BoxData["\<\"ZeroContourPlot[v_List,xRange_List,yRange_List,opts___] \
+Plots the Re[v]=0 (->red) and Im[v]=0 (->blue)contours for  a rectangular MxN \
+array of complex numbers,v.   Useful for finding the zeros of a function of a \
+real variable z. The form of v is: \
+{{v[x1,y1},v[x1,y2]...,v[x1,yN]},{v[x2,y1],v{x2,y2}....}, \
+{v[xM,y1]....,v[xM,yN]}}.   In other words y<->[imaginary part] varies most \
+rapidly.   xRange and yRange are lists of the form: {xmin,xmax} for labeling \
+the axes\"\>"], "Output",
+ CellChangeTimes->{{3.7860200556997013`*^9, 3.78602006321039*^9}, 
+   3.786020139032638*^9, {3.786020451346039*^9, 
+   3.7860204516641912`*^9}},ExpressionUUID->"e4b3f117-9426-486b-bd0f-\
+1015781897d8"],
+
+Cell[BoxData["\<\"ComplexZeroContourPlot[v_List,xRange_List,yRange_List,opts__\
+_] Plots the Re[v]=0 (->red) and Im[v]=0 (->blue)contours for  a rectangular \
+MxN array of complex numbers,v.   Useful for finding the zeros of a function \
+of a complex variable z. The form of v is: \
+{{v[x1,y1},v[x1,y2]...,v[x1,yN]},{v[x2,y1],v{x2,y2}....}, \
+{v[xM,y1]....,v[xM,yN]}}.   In other words y<->[imaginary part] varies most \
+rapidly.   xRange and yRange are lists of the form: {xmin,xmax} for labeling \
+the axes\"\>"], "Output",
+ CellChangeTimes->{{3.7860200556997013`*^9, 3.78602006321039*^9}, 
+   3.786020139032638*^9, {3.786020451346039*^9, 
+   3.786020451667625*^9}},ExpressionUUID->"cb974e6d-1af7-4d86-b277-\
+06c6847aa752"],
+
+Cell[BoxData["\<\"rootSort[v_List] Sorts lists of \
+form{{x1,roots1},{x2,roots2}....{xn,rootsn}} so as to try to maintain \
+continuity of roots.\"\>"], "Output",
+ CellChangeTimes->{{3.7860200556997013`*^9, 3.78602006321039*^9}, 
+   3.786020139032638*^9, {3.786020451346039*^9, 
+   3.786020451671282*^9}},ExpressionUUID->"ad197ded-19ea-4419-98e3-\
+195fa59b5a27"],
+
+Cell[BoxData["\<\"paramPrint[x_List] gives a convenient way of printing a \
+list of parameters just by passing a list of the symbol names whose names and \
+values are to be printed\"\>"], "Output",
+ CellChangeTimes->{{3.7860200556997013`*^9, 3.78602006321039*^9}, 
+   3.786020139032638*^9, {3.786020451346039*^9, 
+   3.786020451674505*^9}},ExpressionUUID->"e76ee13f-4065-4834-9629-\
+3211c735eb3e"],
+
+Cell[BoxData["\<\"PlotPack`Private`\"\>"], "Output",
+ CellChangeTimes->{{3.7860200556997013`*^9, 3.78602006321039*^9}, 
+   3.786020139032638*^9, {3.786020451346039*^9, 
+   3.7860204516778107`*^9}},ExpressionUUID->"0268398f-690d-4375-bc4d-\
+e70a87a1a169"],
+
+Cell[BoxData["\<\"PlotPack`Private`\"\>"], "Output",
+ CellChangeTimes->{{3.7860200556997013`*^9, 3.78602006321039*^9}, 
+   3.786020139032638*^9, {3.786020451346039*^9, 
+   3.786020451680991*^9}},ExpressionUUID->"863be183-adb2-4f27-b3bc-\
+1766c1c06325"]
+}, Open  ]]
+},
+AutoGeneratedPackage->Automatic,
+WindowSize->{1055, 624},
+WindowMargins->{{73, Automatic}, {14, Automatic}},
+PrivateNotebookOptions->{"VersionedStylesheet"->{"Default.nb"[8.] -> False}},
+FrontEndVersion->"11.2 for Mac OS X x86 (32-bit, 64-bit Kernel) (September \
+10, 2017)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 26684, 652, 1523, "Input",ExpressionUUID->"287d2f60-ba54-4142-9dc1-e1e5a5eb77f8",
+ InitializationCell->True],
+Cell[27267, 676, 244, 4, 34, "Output",ExpressionUUID->"f96110ff-b416-4d35-8d6e-87adf352de33"],
+Cell[27514, 682, 519, 8, 77, "Output",ExpressionUUID->"7dcab6c1-35f6-4cce-bf33-c46c1e3547e7"],
+Cell[28036, 692, 528, 8, 77, "Output",ExpressionUUID->"5adb2026-dae1-48bf-b093-baa70475c7a6"],
+Cell[28567, 702, 546, 9, 77, "Output",ExpressionUUID->"405f5aab-0649-4a9e-8fac-3e541ac90606"],
+Cell[29116, 713, 503, 8, 77, "Output",ExpressionUUID->"e7b21f69-d250-4e48-a1d9-b69d3ce9597b"],
+Cell[29622, 723, 717, 11, 98, "Output",ExpressionUUID->"e4b3f117-9426-486b-bd0f-1015781897d8"],
+Cell[30342, 736, 725, 11, 119, "Output",ExpressionUUID->"cb974e6d-1af7-4d86-b277-06c6847aa752"],
+Cell[31070, 749, 361, 6, 56, "Output",ExpressionUUID->"ad197ded-19ea-4419-98e3-195fa59b5a27"],
+Cell[31434, 757, 397, 6, 56, "Output",ExpressionUUID->"e76ee13f-4065-4834-9629-3211c735eb3e"],
+Cell[31834, 765, 254, 4, 34, "Output",ExpressionUUID->"0268398f-690d-4375-bc4d-e70a87a1a169"],
+Cell[32091, 771, 252, 4, 34, "Output",ExpressionUUID->"863be183-adb2-4f27-b3bc-1766c1c06325"]
+}, Open  ]]
+}
+]
+*)
+
