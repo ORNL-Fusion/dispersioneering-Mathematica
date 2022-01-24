@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     34876,        820]
-NotebookOptionsPosition[     33303,        790]
-NotebookOutlinePosition[     33811,        808]
-CellTagsIndexPosition[     33768,        805]
+NotebookDataLength[     35406,        820]
+NotebookOptionsPosition[     33833,        790]
+NotebookOutlinePosition[     34341,        808]
+CellTagsIndexPosition[     34298,        805]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -672,15 +672,15 @@ values are to be printed\>\""}], "\n",
    3.786020138961617*^9, {3.8286169726383657`*^9, 3.828616978187674*^9}, {
    3.828703392330752*^9, 3.8287034080496693`*^9}, {3.828706553963272*^9, 
    3.8287065563191023`*^9}},
- ShowSpecialCharacters->
-  False,ExpressionUUID->"287d2f60-ba54-4142-9dc1-e1e5a5eb77f8"],
+ ShowSpecialCharacters->False,
+ CellLabel->"In[64]:=",ExpressionUUID->"287d2f60-ba54-4142-9dc1-e1e5a5eb77f8"],
 
 Cell[BoxData["\<\"PlotPack`\"\>"], "Output",
  CellChangeTimes->{{3.7860200556997013`*^9, 3.78602006321039*^9}, 
    3.786020139032638*^9, {3.786020451346039*^9, 3.786020451639295*^9}, {
-   3.8287034217322903`*^9, 3.828703421927655*^9}},
- CellLabel->
-  "Out[772]=",ExpressionUUID->"8172d2ba-6b92-498b-98ab-49573b3e545a"],
+   3.8287034217322903`*^9, 3.828703421927655*^9}, {3.851706958871777*^9, 
+   3.851706959014982*^9}},
+ CellLabel->"Out[64]=",ExpressionUUID->"959b0ba8-2d14-4515-be3a-b8044e2e2870"],
 
 Cell[BoxData["\<\"ComplexListPlot[v_List,xLabel_String,yLabel_String,opts___] \
 Plots real and imaginary parts of a complex curve from a list v of the \
@@ -689,9 +689,9 @@ built in function ListPlot. Standard graphics options can be included\"\>"], \
 "Output",
  CellChangeTimes->{{3.7860200556997013`*^9, 3.78602006321039*^9}, 
    3.786020139032638*^9, {3.786020451346039*^9, 3.786020451639295*^9}, {
-   3.8287034217322903`*^9, 3.828703421930155*^9}},
- CellLabel->
-  "Out[773]=",ExpressionUUID->"70976a92-7c8d-4d45-9d80-dca01c467a06"],
+   3.8287034217322903`*^9, 3.828703421927655*^9}, {3.851706958871777*^9, 
+   3.851706959016739*^9}},
+ CellLabel->"Out[65]=",ExpressionUUID->"e1a88e8b-d6af-4618-b4d8-580726560aa3"],
 
 Cell[BoxData["\<\"ComplexListPlot[v_List,xLabel_String,yLabel_String,opts___] \
 Plots real and imaginary parts of a complex curve from a list v of the \
@@ -700,9 +700,9 @@ built in function ListPlot. Same as ComplexListPlot but points are not joined\
 \"\>"], "Output",
  CellChangeTimes->{{3.7860200556997013`*^9, 3.78602006321039*^9}, 
    3.786020139032638*^9, {3.786020451346039*^9, 3.786020451639295*^9}, {
-   3.8287034217322903`*^9, 3.828703421932851*^9}},
- CellLabel->
-  "Out[774]=",ExpressionUUID->"74def616-8968-4317-93fb-2ca5802a67d9"],
+   3.8287034217322903`*^9, 3.828703421927655*^9}, {3.851706958871777*^9, 
+   3.851706959018621*^9}},
+ CellLabel->"Out[66]=",ExpressionUUID->"705bb9f9-b701-4f07-8f15-e01ce2a26837"],
 
 Cell[BoxData["\<\"ComplexVectorListPlot[v_List,xLabel_String,yLabel_String,\
 opts___] Plots real and imaginary parts of a family of complex curves from a \
@@ -712,9 +712,9 @@ built-in function ListPlot.   Standard graphics options can be \
 included\"\>"], "Output",
  CellChangeTimes->{{3.7860200556997013`*^9, 3.78602006321039*^9}, 
    3.786020139032638*^9, {3.786020451346039*^9, 3.786020451639295*^9}, {
-   3.8287034217322903`*^9, 3.82870342193497*^9}},
- CellLabel->
-  "Out[775]=",ExpressionUUID->"3fe52141-0b27-49fd-a5be-2f30db15ad3b"],
+   3.8287034217322903`*^9, 3.828703421927655*^9}, {3.851706958871777*^9, 
+   3.851706959020718*^9}},
+ CellLabel->"Out[67]=",ExpressionUUID->"6ecc8450-6ff9-4c6d-83bc-d459e03b9daf"],
 
 Cell[BoxData["\<\"ComplexVectorListPlot[v_List,xLabel_String,yLabel_String,\
 opts___] Plots family of n curves from a list v of the form v= \
@@ -723,9 +723,9 @@ built-in function ListPlot. Standard graphics options can be included\"\>"], \
 "Output",
  CellChangeTimes->{{3.7860200556997013`*^9, 3.78602006321039*^9}, 
    3.786020139032638*^9, {3.786020451346039*^9, 3.786020451639295*^9}, {
-   3.8287034217322903`*^9, 3.8287034219368467`*^9}},
- CellLabel->
-  "Out[776]=",ExpressionUUID->"0b16578b-8894-4db1-8255-4eb4e3c6718b"],
+   3.8287034217322903`*^9, 3.828703421927655*^9}, {3.851706958871777*^9, 
+   3.8517069590224543`*^9}},
+ CellLabel->"Out[68]=",ExpressionUUID->"d14e0100-9308-4552-bd2e-d49bf97b7e8a"],
 
 Cell[BoxData["\<\"ZeroContourPlot[v_List,xRange_List,yRange_List,opts___] \
 Plots the Re[v]=0 (->red) and Im[v]=0 (->blue)contours for  a rectangular MxN \
@@ -737,9 +737,9 @@ rapidly.   xRange and yRange are lists of the form: {xmin,xmax} for labeling \
 the axes\"\>"], "Output",
  CellChangeTimes->{{3.7860200556997013`*^9, 3.78602006321039*^9}, 
    3.786020139032638*^9, {3.786020451346039*^9, 3.786020451639295*^9}, {
-   3.8287034217322903`*^9, 3.828703421939445*^9}},
- CellLabel->
-  "Out[777]=",ExpressionUUID->"2e192dd6-2630-4cfa-95b9-272363a6881f"],
+   3.8287034217322903`*^9, 3.828703421927655*^9}, {3.851706958871777*^9, 
+   3.8517069590243177`*^9}},
+ CellLabel->"Out[69]=",ExpressionUUID->"de900a91-a4ba-46e0-94a7-5c3a30c30b33"],
 
 Cell[BoxData["\<\"ComplexZeroContourPlot[v_List,xRange_List,yRange_List,opts__\
 _] Plots the Re[v]=0 (->red) and Im[v]=0 (->blue)contours for  a rectangular \
@@ -751,41 +751,41 @@ rapidly.   xRange and yRange are lists of the form: {xmin,xmax} for labeling \
 the axes\"\>"], "Output",
  CellChangeTimes->{{3.7860200556997013`*^9, 3.78602006321039*^9}, 
    3.786020139032638*^9, {3.786020451346039*^9, 3.786020451639295*^9}, {
-   3.8287034217322903`*^9, 3.828703421942374*^9}},
- CellLabel->
-  "Out[778]=",ExpressionUUID->"14d901b5-7049-49f8-be87-45142b4dfcc5"],
+   3.8287034217322903`*^9, 3.828703421927655*^9}, {3.851706958871777*^9, 
+   3.851706959026552*^9}},
+ CellLabel->"Out[70]=",ExpressionUUID->"a6c6d07f-ba0d-4dc6-a248-da70ff329ff3"],
 
 Cell[BoxData["\<\"rootSort[v_List] Sorts lists of \
 form{{x1,roots1},{x2,roots2}....{xn,rootsn}} so as to try to maintain \
 continuity of roots.\"\>"], "Output",
  CellChangeTimes->{{3.7860200556997013`*^9, 3.78602006321039*^9}, 
    3.786020139032638*^9, {3.786020451346039*^9, 3.786020451639295*^9}, {
-   3.8287034217322903`*^9, 3.828703421944561*^9}},
- CellLabel->
-  "Out[779]=",ExpressionUUID->"cb7523bd-5490-4c07-af9c-04d0225af9fb"],
+   3.8287034217322903`*^9, 3.828703421927655*^9}, {3.851706958871777*^9, 
+   3.851706959028578*^9}},
+ CellLabel->"Out[71]=",ExpressionUUID->"c2d5b3fb-6f6a-42ee-8237-35aa34b89e56"],
 
 Cell[BoxData["\<\"paramPrint[x_List] gives a convenient way of printing a \
 list of parameters just by passing a list of the symbol names whose names and \
 values are to be printed\"\>"], "Output",
  CellChangeTimes->{{3.7860200556997013`*^9, 3.78602006321039*^9}, 
    3.786020139032638*^9, {3.786020451346039*^9, 3.786020451639295*^9}, {
-   3.8287034217322903`*^9, 3.828703421946903*^9}},
- CellLabel->
-  "Out[780]=",ExpressionUUID->"b1994702-877c-499d-af8c-81924b9a6181"],
+   3.8287034217322903`*^9, 3.828703421927655*^9}, {3.851706958871777*^9, 
+   3.8517069590303173`*^9}},
+ CellLabel->"Out[72]=",ExpressionUUID->"1c01fb4d-6ade-486b-a7d4-4e1f66a12c23"],
 
 Cell[BoxData["\<\"PlotPack`Private`\"\>"], "Output",
  CellChangeTimes->{{3.7860200556997013`*^9, 3.78602006321039*^9}, 
    3.786020139032638*^9, {3.786020451346039*^9, 3.786020451639295*^9}, {
-   3.8287034217322903`*^9, 3.828703421951385*^9}},
- CellLabel->
-  "Out[787]=",ExpressionUUID->"ffa2ebb7-3607-4818-88a8-02fb198f98d5"],
+   3.8287034217322903`*^9, 3.828703421927655*^9}, {3.851706958871777*^9, 
+   3.851706959031927*^9}},
+ CellLabel->"Out[79]=",ExpressionUUID->"a8b6a330-3c4c-45c8-af11-38e5b4d7033b"],
 
 Cell[BoxData["\<\"PlotPack`Private`\"\>"], "Output",
  CellChangeTimes->{{3.7860200556997013`*^9, 3.78602006321039*^9}, 
    3.786020139032638*^9, {3.786020451346039*^9, 3.786020451639295*^9}, {
-   3.8287034217322903`*^9, 3.8287034219540253`*^9}},
- CellLabel->
-  "Out[797]=",ExpressionUUID->"6c1dd9eb-4d10-419f-80a5-c4605710a258"]
+   3.8287034217322903`*^9, 3.828703421927655*^9}, {3.851706958871777*^9, 
+   3.851706959033659*^9}},
+ CellLabel->"Out[89]=",ExpressionUUID->"3da67c7a-a7ce-4227-b4f8-5ea3d43d86b9"]
 }, Open  ]]
 },
 AutoGeneratedPackage->Automatic,
@@ -808,19 +808,19 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[580, 22, 26814, 653, 1769, "Input",ExpressionUUID->"287d2f60-ba54-4142-9dc1-e1e5a5eb77f8",
+Cell[580, 22, 26835, 653, 1769, "Input",ExpressionUUID->"287d2f60-ba54-4142-9dc1-e1e5a5eb77f8",
  InitializationCell->True],
-Cell[27397, 677, 318, 5, 34, "Output",ExpressionUUID->"8172d2ba-6b92-498b-98ab-49573b3e545a"],
-Cell[27718, 684, 594, 9, 77, "Output",ExpressionUUID->"70976a92-7c8d-4d45-9d80-dca01c467a06"],
-Cell[28315, 695, 602, 9, 77, "Output",ExpressionUUID->"74def616-8968-4317-93fb-2ca5802a67d9"],
-Cell[28920, 706, 619, 10, 77, "Output",ExpressionUUID->"3fe52141-0b27-49fd-a5be-2f30db15ad3b"],
-Cell[29542, 718, 579, 9, 77, "Output",ExpressionUUID->"0b16578b-8894-4db1-8255-4eb4e3c6718b"],
-Cell[30124, 729, 789, 12, 98, "Output",ExpressionUUID->"2e192dd6-2630-4cfa-95b9-272363a6881f"],
-Cell[30916, 743, 799, 12, 119, "Output",ExpressionUUID->"14d901b5-7049-49f8-be87-45142b4dfcc5"],
-Cell[31718, 757, 435, 7, 56, "Output",ExpressionUUID->"cb7523bd-5490-4c07-af9c-04d0225af9fb"],
-Cell[32156, 766, 471, 7, 56, "Output",ExpressionUUID->"b1994702-877c-499d-af8c-81924b9a6181"],
-Cell[32630, 775, 326, 5, 34, "Output",ExpressionUUID->"ffa2ebb7-3607-4818-88a8-02fb198f98d5"],
-Cell[32959, 782, 328, 5, 34, "Output",ExpressionUUID->"6c1dd9eb-4d10-419f-80a5-c4605710a258"]
+Cell[27418, 677, 364, 5, 34, "Output",ExpressionUUID->"959b0ba8-2d14-4515-be3a-b8044e2e2870"],
+Cell[27785, 684, 640, 9, 77, "Output",ExpressionUUID->"e1a88e8b-d6af-4618-b4d8-580726560aa3"],
+Cell[28428, 695, 648, 9, 77, "Output",ExpressionUUID->"705bb9f9-b701-4f07-8f15-e01ce2a26837"],
+Cell[29079, 706, 666, 10, 77, "Output",ExpressionUUID->"6ecc8450-6ff9-4c6d-83bc-d459e03b9daf"],
+Cell[29748, 718, 625, 9, 77, "Output",ExpressionUUID->"d14e0100-9308-4552-bd2e-d49bf97b7e8a"],
+Cell[30376, 729, 837, 12, 98, "Output",ExpressionUUID->"de900a91-a4ba-46e0-94a7-5c3a30c30b33"],
+Cell[31216, 743, 845, 12, 119, "Output",ExpressionUUID->"a6c6d07f-ba0d-4dc6-a248-da70ff329ff3"],
+Cell[32064, 757, 481, 7, 56, "Output",ExpressionUUID->"c2d5b3fb-6f6a-42ee-8237-35aa34b89e56"],
+Cell[32548, 766, 519, 7, 56, "Output",ExpressionUUID->"1c01fb4d-6ade-486b-a7d4-4e1f66a12c23"],
+Cell[33070, 775, 372, 5, 34, "Output",ExpressionUUID->"a8b6a330-3c4c-45c8-af11-38e5b4d7033b"],
+Cell[33445, 782, 372, 5, 34, "Output",ExpressionUUID->"3da67c7a-a7ce-4227-b4f8-5ea3d43d86b9"]
 }, Open  ]]
 }
 ]

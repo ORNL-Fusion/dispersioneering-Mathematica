@@ -1,0 +1,296 @@
+&genr
+    mnemonic = 'WHAM2.6.1.4'
+    rayop = 'netcdf'
+    dielectric_op = 'enabled'
+    r0x = 1.0
+    b0 = 1.0
+    outdat = 'zrn.dat'
+    stat = 'new'
+    ixyz = 1
+/
+&tokamak
+!    eqdskin = 'eqdsk_WHAM2_modelb2_B0.853T'
+    eqdskin = '/home/bobh/cql3d/forest/WHAM1-2_equilibria/WHAM2_Frm_Anderson/WHAM_Phase_2_eqdsk'
+!    eqdskin = '0'
+    eqdsktype = 'mirror'
+    indexrho = 4
+    ipsi = 1
+    ionetwo = 1
+    ieffic = 3
+    psifactr = 0.999
+    model_b = 0
+!    model_b=2
+   !Coils as in Anderson-WHAM2_Coils_201212.txt: 
+             !Two pancakes + midplane coil.
+             !210125_Anderson_Coil_Currents_WHAM1-2.pdf
+   !210204:  CFS coils: 11x16 array at 26800A per turn
+             !  ==> B(0,0)=0.298T
+             !Approx the 16 coils by 9 radii, skipping every 2nd one.
+             !Total coil current=11*16*26800=4.7168 MA ==> .52409 MA/model coil
+   !201212:  !our model is a 2d array of filaments 11 in z by 16 radial, 
+             !with a filament of current laying on the inner radius at the 
+             !central z of each.  26.8 kA  Should give B(0,0)=0.298T.
+   !WHAM1: 210125_Anderson says B(0,0)=.427 T  plasma radius=0.1344m
+   !WHAM2: 210125_Anderson says B(0,0)=.853 T  plasma radius=0.0964m
+
+ 
+ ncoils=384
+ radc(1:176)=0.0600d0 0.0790d0 0.0980d0 0.117d0 0.136d0 0.155d0 0.174d0 0.193d0 0.212d0 0.231d0 0.250d0 0.269d0 0.288d0 0.307d0 0.326d0 0.345d0
+             0.0600d0 0.0790d0 0.0980d0 0.117d0 0.136d0 0.155d0 0.174d0 0.193d0 0.212d0 0.231d0 0.250d0 0.269d0 0.288d0 0.307d0 0.326d0 0.345d0
+             0.0600d0 0.0790d0 0.0980d0 0.117d0 0.136d0 0.155d0 0.174d0 0.193d0 0.212d0 0.231d0 0.250d0 0.269d0 0.288d0 0.307d0 0.326d0 0.345d0
+             0.0600d0 0.0790d0 0.0980d0 0.117d0 0.136d0 0.155d0 0.174d0 0.193d0 0.212d0 0.231d0 0.250d0 0.269d0 0.288d0 0.307d0 0.326d0 0.345d0
+             0.0600d0 0.0790d0 0.0980d0 0.117d0 0.136d0 0.155d0 0.174d0 0.193d0 0.212d0 0.231d0 0.250d0 0.269d0 0.288d0 0.307d0 0.326d0 0.345d0
+             0.0600d0 0.0790d0 0.0980d0 0.117d0 0.136d0 0.155d0 0.174d0 0.193d0 0.212d0 0.231d0 0.250d0 0.269d0 0.288d0 0.307d0 0.326d0 0.345d0
+             0.0600d0 0.0790d0 0.0980d0 0.117d0 0.136d0 0.155d0 0.174d0 0.193d0 0.212d0 0.231d0 0.250d0 0.269d0 0.288d0 0.307d0 0.326d0 0.345d0
+             0.0600d0 0.0790d0 0.0980d0 0.117d0 0.136d0 0.155d0 0.174d0 0.193d0 0.212d0 0.231d0 0.250d0 0.269d0 0.288d0 0.307d0 0.326d0 0.345d0
+             0.0600d0 0.0790d0 0.0980d0 0.117d0 0.136d0 0.155d0 0.174d0 0.193d0 0.212d0 0.231d0 0.250d0 0.269d0 0.288d0 0.307d0 0.326d0 0.345d0
+             0.0600d0 0.0790d0 0.0980d0 0.117d0 0.136d0 0.155d0 0.174d0 0.193d0 0.212d0 0.231d0 0.250d0 0.269d0 0.288d0 0.307d0 0.326d0 0.345d0
+             0.0600d0 0.0790d0 0.0980d0 0.117d0 0.136d0 0.155d0 0.174d0 0.193d0 0.212d0 0.231d0 0.250d0 0.269d0 0.288d0 0.307d0 0.326d0 0.345d0
+ radc(177:352)=0.0600d0 0.0790d0 0.0980d0 0.117d0 0.136d0 0.155d0 0.174d0 0.193d0 0.212d0 0.231d0 0.250d0 0.269d0 0.288d0 0.307d0 0.326d0 0.345d0
+             0.0600d0 0.0790d0 0.0980d0 0.117d0 0.136d0 0.155d0 0.174d0 0.193d0 0.212d0 0.231d0 0.250d0 0.269d0 0.288d0 0.307d0 0.326d0 0.345d0
+             0.0600d0 0.0790d0 0.0980d0 0.117d0 0.136d0 0.155d0 0.174d0 0.193d0 0.212d0 0.231d0 0.250d0 0.269d0 0.288d0 0.307d0 0.326d0 0.345d0
+             0.0600d0 0.0790d0 0.0980d0 0.117d0 0.136d0 0.155d0 0.174d0 0.193d0 0.212d0 0.231d0 0.250d0 0.269d0 0.288d0 0.307d0 0.326d0 0.345d0
+             0.0600d0 0.0790d0 0.0980d0 0.117d0 0.136d0 0.155d0 0.174d0 0.193d0 0.212d0 0.231d0 0.250d0 0.269d0 0.288d0 0.307d0 0.326d0 0.345d0
+             0.0600d0 0.0790d0 0.0980d0 0.117d0 0.136d0 0.155d0 0.174d0 0.193d0 0.212d0 0.231d0 0.250d0 0.269d0 0.288d0 0.307d0 0.326d0 0.345d0
+             0.0600d0 0.0790d0 0.0980d0 0.117d0 0.136d0 0.155d0 0.174d0 0.193d0 0.212d0 0.231d0 0.250d0 0.269d0 0.288d0 0.307d0 0.326d0 0.345d0
+             0.0600d0 0.0790d0 0.0980d0 0.117d0 0.136d0 0.155d0 0.174d0 0.193d0 0.212d0 0.231d0 0.250d0 0.269d0 0.288d0 0.307d0 0.326d0 0.345d0
+             0.0600d0 0.0790d0 0.0980d0 0.117d0 0.136d0 0.155d0 0.174d0 0.193d0 0.212d0 0.231d0 0.250d0 0.269d0 0.288d0 0.307d0 0.326d0 0.345d0
+             0.0600d0 0.0790d0 0.0980d0 0.117d0 0.136d0 0.155d0 0.174d0 0.193d0 0.212d0 0.231d0 0.250d0 0.269d0 0.288d0 0.307d0 0.326d0 0.345d0
+             0.0600d0 0.0790d0 0.0980d0 0.117d0 0.136d0 0.155d0 0.174d0 0.193d0 0.212d0 0.231d0 0.250d0 0.269d0 0.288d0 0.307d0 0.326d0 0.345d0
+ zcoil(1:176)= 16*.93d0 16*.94d0 16*.95d0 16*.96d0 16*.97d0 16*.98d0 16*.99d0 16*1.00d0 16*1.01d0 16*1.02d0 16*1.03d0
+ zcoil(177:352)= 16*-.93d0 16*-.94d0 16*-.95d0 16*-.96d0 16*-.97d0 16*-.98d0 16*-.99d0 16*-1.00d0 16*-1.01d0 16*-1.02d0 16*-1.03d0
+! curc(1:352)=352*26.8d3   !Nominal coil current gives B(0,0)=0.27564
+ curc(1:352)=352*28.974d3  !Adjusted to get B(0,0)=0.298T
+
+!Adding in the midplane coil model
+ radc(353:368)= 4*0.613d0,4*0.739d0,4*0.865d0,4*0.991d0
+ radc(369:384)= 4*0.613d0,4*0.739d0,4*0.865d0,4*0.991d0
+ zcoil(353:356)=-26.75d-2,-22.25d-2,-17.75d-2,-13.25d-2
+ zcoil(357:360)=-26.75d-2,-22.25d-2,-17.75d-2,-13.25d-2
+ zcoil(361:364)=-26.75d-2,-22.25d-2,-17.75d-2,-13.25d-2
+ zcoil(365:368)=-26.75d-2,-22.25d-2,-17.75d-2,-13.25d-2
+ zcoil(369:372)= 26.75d-2, 22.25d-2, 17.75d-2, 13.25d-2
+ zcoil(373:376)= 26.75d-2, 22.25d-2, 17.75d-2, 13.25d-2
+ zcoil(377:380)= 26.75d-2, 22.25d-2, 17.75d-2, 13.25d-2
+ zcoil(381:384)= 26.75d-2, 22.25d-2, 17.75d-2, 13.25d-2
+! curc(353:384)=32*5.625d3  !WHAM1
+! curc(353:384)=32*5.5548d3  !WHAM1, Adjusted to give B(0,0)=0.427
+! curc(353:384)=32*23.4375d3  !WHAM2, Nominal midplane current ==> B(0,0)=.84224
+!                            ! Further adj: (.853-.298)/(.84224-.298)=1.01977
+!			     ! 23.4375*1.01977=23.90085  A 2% increase.
+! curc(353:384)=32*23.4375d3  !WHAM2, Nominal midplane current
+ curc(353:384)=32*23.90085d3  !WHAM2, Nominal midplane current
+! curc(353:384)=32*0.d0  !No central coil current
+
+        nr = 201
+    nrgrid = 201
+    nzgrid = 257
+!    n_wall = 13
+    n_wall = 33
+!    r_wall = 0.0275,0.0275,0.0325,0.1270,0.1270,0.2490,0.2490,0.6285,0.6285,0.2490,0.2490,0.1270,0.1270,0.0325,0.0275,0.0275,-0.0275,-0.0275,-0.0325,-0.1270,-0.1270,-0.2490,-0.2490,-0.6285,-0.6285,-0.2490,-0.2490,-0.1270,-0.1270,-0.0325,-0.0275,-0.0275,0.0275
+!    z_wall = -0.9420,-0.8270,-0.7920,-0.7920,-0.6875,-0.6875,-0.6540,-0.2750,0.2750,0.6540,0.6875,0.6875,0.7920,0.7920,0.8270,0.9420,0.9420,0.8270,0.7920,0.7920,0.6875,0.6875,0.6540,0.2750,-0.2750,-0.6540,-0.6875,-0.6875,-0.7920,-0.7920,-0.8270,-0.9420,-0.9420
+    h_add_wall = 0.1
+!    rlim_wall_fraction=0.3584 ! rho=1 will be at
+!    rlim_wall_fraction=0.25707 ! rho=1 will be at
+    rlim_wall_fraction=0.24707 ! rho=1 will be at
+    		 ! rlim_wall_fraction*max(r_wall)=0.25707*0.375=0.0964[m]
+			      ! Appears to be at 10.03. (210311)
+			      ! Adjust WHAM2 to .964/.1003*.25707=.247074
+			      ! 210311: WHAM1 adjusted to 
+			      !         0.3584*0.1344/0.13985= 0.34443
+    			      !  From Anderson_WHAM_1_2_field_201216.pdf,
+			      !  B(0,0)=.427, Rad at z=0 is 0.1344m
+			      !  B(0,0)=.853, Rad at z=0 is 0.964m
+
+!Vacuum vessel:
+!r_wall=.032, .032,  .375, .375, .032, .032, -.032, -.032, -.375 ,-.375, -.032,-.032, +.032
+!z_wall=-.8, -.787, -.787,+.787,+.787   .8,   .8,   .787,   .787, -.787, -.787,-.8, -.8
+
+ r_wall=0.0275   0.0275   0.0325   0.1270   0.1270 
+       0.2540   0.2540   0.3      0.3      0.2540 
+       0.2540   0.3      0.3      0.2540   0.2540 
+       0.1270   0.1270   0.0325   0.0275   0.0275  
+      -0.0275  -0.0275  -0.0325  -0.1270  -0.1270 
+      -0.2540  -0.2540  -0.1270  -0.1270  -0.0325 
+      -0.0275  -0.0275   0.0275 
+
+ z_wall= -1.238   -0.865   -0.83    -0.83    -0.7255
+        -0.7255  -0.6712  -0.6712  -0.3193  -0.3193
+         0.3193   0.3193   0.6712   0.6712  0.7255
+         0.7255   0.83     0.83     0.865   1.238   
+         1.238    0.865    0.83     0.83    0.7255
+         0.7255  -0.7255  -0.7255  -0.83    -0.83
+        -0.865   -1.238   -1.238 
+
+
+
+
+/
+&wave
+    frqncy = 26000000.0
+    ioxm = -1
+!    ireflm = 200
+!    ireflm = 4
+!    ireflm = 16
+!    ireflm = 40
+    ireflm = 2
+    jwave = 1
+    istart = 2
+    delpwrmn = 0.00001
+    ibw = 0
+    i_vgr_ini = 1
+    poldist_mx = 100000.0
+    rho_reflect = 1.0
+/
+&scatnper
+/
+&dispers
+    ib = 2
+    id = 2
+    iherm = 1
+    iabsorp = 3  !Chu, FW
+    iswitch = 0
+    idswitch = 2
+    iabswitch = 1
+    iflux = 1
+    i_im_nperp = 2
+    i_geom_optic = 1
+    ray_direction = -1.0
+/
+&numercl
+    irkmeth = 2
+    ndim1 = 6
+    isolv = 1
+    idif = 1 ! 2
+    nrelt = 10000
+    prmt1 = 0.0
+    prmt2 = 999900.0
+    prmt3 = 2.e-4 !1.0e-04
+    prmt4 = 1.e-3 !5.0e-04
+    prmt6 = 2.e-3 !0.001
+    icorrect = 0
+    maxsteps_rk = 10000
+    i_uh_switch = 0 !1
+    uh_switch = 1.5
+    prmt6_uh_switch = 0.0001
+    toll_hamilt = 0.1
+/
+&output
+    iwcntr = 0
+    iwopen = 1
+    iwj = 1
+    itools = 0
+    i_save_disp = 0
+    ixscan_save_disp = 300
+    xmin_save_disp = 0.0
+    xmax_save_disp = 0.31
+    y_save_disp = 0.0
+    z_save_disp = 0.0
+    inpar_save_disp = 5
+    inper_save_disp = 100
+    npar_mn_save_disp = 0.0
+    npar_mx_save_disp = 20.0
+    nper_mn_save_disp = 0.001
+    nper_mx_save_disp = 600.0
+/
+&plasma
+    ndens = 41
+    nbulk = 3
+    izeff = 2
+    idens = 0
+    model_rho_dens = 0
+/
+&species
+    charge = 1.0, 1.0, 1.0
+    dmas = 1.0, 3671.5, 3671.5
+/
+&varden
+/
+&denprof
+    dense0 = 6.d+19, 5.4d+19, 0.6d+19  !e, bulk D, tail D
+    denseb = 6.d+19, 5.4d+19, 0.6d+19
+    rn1de = 2.0, 2.0, 2.0
+    rn2de = 0.1, 0.1, 0.1
+    zbegin_den_dropoff = 0.0,
+    zlength_den_dropoff = 0.0,
+/
+&tpopprof
+    tp0 = 1.0, 1.0, 1.0
+    tpb = 1.0, 1.0, 1.0
+    rn1tp = 2.0, 2.0, 2.0
+    rn2tp = 1.0, 1.0, 1.0
+/
+&vflprof
+/
+&zprof
+    zeff0 = 1.0
+    zeffb = 1.0
+    rn1zeff = 2.0
+    rn2zeff = 1.0
+/
+&tprof
+    ate0 = 1.0, 2.0, 25.
+    ateb = 1.0, 2.0, 25.
+    rn1te = 2.0, 2.0, 2.0
+    rn2te = 2.0, 2.0, 2.0
+/
+&grill
+    ilaunch = 1
+!    r0launch = 0.063
+!    z0launch = 0.590
+    r0launch = 0.080
+    z0launch = 0.64
+    phi0launch = 0.0
+    i_n_poloidal = 1
+    i_rho_cutoff = 0
+    ngrill = 1
+    igrillpw = 1
+    rhopsi0 = 0.91
+    thgrill = 0.0
+    phigrill = 0.0
+    height = 0.01
+    nthin = 1
+    anmin = -2.5
+    anmax = 2.5
+!    nnkpar = 10
+!    nnkpar = 10
+    nnkpar = 3
+    powers = 1.d3   !1 kW.  Adjust power in cqlinput.
+/
+&eccone
+    raypatt = 'genray'
+    ncone = 6
+    powtot = 1000000.0, 1000000.0, 1000000.0, 1000000.0, 1000000.0, 1000000.0,
+    zst = 0.0, 0.0, 0.0, 0.0, 0.0, 0.0
+    rst = 0.3, 0.3, 0.3, 0.3, 0.3, 0.3
+    phist = 0.0, 0.0, 0.0, 0.0, 0.0, 0.0
+    betast = -28.0, -7.0, -0.5, 0.5, 7.0, 28.0
+    alfast = 180.0, 180.0, 180.0, 180.0, 180.0, 180.0
+    alpha1 = 0.0, 0.0, 0.0, 0.0, 0.0, 0.0
+    alpha2 = 0.0, 0.0, 0.0, 0.0, 0.0, 0.0
+    na1 = 0
+    na2 = 1
+/
+&dentab
+/
+&temtab
+/
+&tpoptab
+/
+&vflowtab
+/
+&zeftab
+/
+&read_diskf
+    i_diskf = 0
+/
+&emission
+/
+&ox
+    i_ox = 0
+    theta_bot = 0.0
+    theta_top = 0.0
+    i_ox_poloidal_max = 20
+    eps_antenna = 0.0001
+    eps_xe = 0.05
+/
