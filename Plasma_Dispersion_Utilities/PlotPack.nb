@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     35460,        832]
-NotebookOptionsPosition[     33881,        802]
-NotebookOutlinePosition[     34392,        820]
-CellTagsIndexPosition[     34349,        817]
+NotebookDataLength[     38298,        858]
+NotebookOptionsPosition[     36723,        828]
+NotebookOutlinePosition[     37230,        846]
+CellTagsIndexPosition[     37187,        843]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -45,8 +45,8 @@ built-in function ListPlot.   Standard \\\ngraphics options can be included\>\
 \""}], "\n", 
  RowBox[{
   RowBox[{"VectorListPlot", "::", "usage"}], " ", "=", " ", 
-  "\"\<ComplexVectorListPlot[v_List,xLabel_String,yLabel_String,opts___] \
-Plots family of n curves \\\nfrom a list v of the form v= \
+  "\"\<VectorListPlot[v_List,xLabel_String,yLabel_String,opts___] Plots \
+family of n curves \\\nfrom a list v of the form v= \
 {{x1,y1[1],y1[2],...y1[N]},{x2,y2[1],y2[2],...y2[N]},...}. It uses the \
 built-in function \\\nListPlot. Standard graphics options can be \
 included\>\""}], "\n", 
@@ -135,13 +135,13 @@ values are to be printed\>\""}], "\n",
      RowBox[{"rev", " ", "=", " ", 
       RowBox[{"Re", "[", 
        RowBox[{
-        RowBox[{"Transpose", "[", "v", "]"}], "[", 
-        RowBox[{"[", "2", "]"}], "]"}], "]"}]}], ";", " ", 
+        RowBox[{"Transpose", "[", "v", "]"}], "\\[LeftDoubleBracket]", " ", 
+        "2", " ", "\\[RightDoubleBracket]"}], "]"}]}], ";", " ", 
      RowBox[{"imv", " ", "=", " ", 
       RowBox[{"Im", "[", 
        RowBox[{
-        RowBox[{"Transpose", "[", "v", "]"}], "[", 
-        RowBox[{"[", "2", "]"}], "]"}], "]"}]}], ";", " ", "\n", "    ", 
+        RowBox[{"Transpose", "[", "v", "]"}], "\\[LeftDoubleBracket]", " ", 
+        "2", " ", "\\[RightDoubleBracket]"}], "]"}]}], ";", " ", "\n", "    ", 
      RowBox[{"Show", "[", 
       RowBox[{
        RowBox[{"ListPlot", "[", 
@@ -150,10 +150,10 @@ values are to be printed\>\""}], "\n",
           RowBox[{"{", 
            RowBox[{
             RowBox[{
-             RowBox[{"Transpose", "[", "v", "]"}], "[", 
-             RowBox[{"[", "1", "]"}], "]"}], ",", " ", "rev"}], "}"}], "]"}], 
-         ",", " ", 
-         RowBox[{"PlotJoined", " ", "->", " ", "True"}], ",", " ", 
+             RowBox[{"Transpose", "[", "v", "]"}], "\\[LeftDoubleBracket]", 
+             " ", "1", " ", "\\[RightDoubleBracket]"}], ",", " ", "rev"}], 
+           "}"}], "]"}], ",", " ", 
+         RowBox[{"Joined", " ", "->", " ", "True"}], ",", " ", 
          RowBox[{"AxesLabel", " ", "->", " ", 
           RowBox[{"{", 
            RowBox[{"xLabel", ",", " ", "yLabel"}], "}"}]}], ",", " ", "\n", 
@@ -168,10 +168,10 @@ values are to be printed\>\""}], "\n",
           RowBox[{"{", 
            RowBox[{
             RowBox[{
-             RowBox[{"Transpose", "[", "v", "]"}], "[", 
-             RowBox[{"[", "1", "]"}], "]"}], ",", " ", "imv"}], "}"}], "]"}], 
-         ",", " ", "\n", "      ", 
-         RowBox[{"PlotJoined", " ", "->", " ", "True"}], ",", " ", 
+             RowBox[{"Transpose", "[", "v", "]"}], "\\[LeftDoubleBracket]", 
+             " ", "1", " ", "\\[RightDoubleBracket]"}], ",", " ", "imv"}], 
+           "}"}], "]"}], ",", " ", "\n", "      ", 
+         RowBox[{"Joined", " ", "->", " ", "True"}], ",", " ", 
          RowBox[{"DisplayFunction", " ", "->", " ", "Identity"}], ",", " ", 
          RowBox[{"PlotStyle", " ", "->", " ", 
           RowBox[{"{", 
@@ -199,13 +199,13 @@ values are to be printed\>\""}], "\n",
      RowBox[{"rev", " ", "=", " ", 
       RowBox[{"Re", "[", 
        RowBox[{
-        RowBox[{"Transpose", "[", "v", "]"}], "[", 
-        RowBox[{"[", "2", "]"}], "]"}], "]"}]}], ";", " ", 
+        RowBox[{"Transpose", "[", "v", "]"}], "\\[LeftDoubleBracket]", " ", 
+        "2", " ", "\\[RightDoubleBracket]"}], "]"}]}], ";", " ", 
      RowBox[{"imv", " ", "=", " ", 
       RowBox[{"Im", "[", 
        RowBox[{
-        RowBox[{"Transpose", "[", "v", "]"}], "[", 
-        RowBox[{"[", "2", "]"}], "]"}], "]"}]}], ";", " ", "\n", "    ", 
+        RowBox[{"Transpose", "[", "v", "]"}], "\\[LeftDoubleBracket]", " ", 
+        "2", " ", "\\[RightDoubleBracket]"}], "]"}]}], ";", " ", "\n", "    ", 
      RowBox[{"Show", "[", 
       RowBox[{
        RowBox[{"ListPlot", "[", 
@@ -214,10 +214,10 @@ values are to be printed\>\""}], "\n",
           RowBox[{"{", 
            RowBox[{
             RowBox[{
-             RowBox[{"Transpose", "[", "v", "]"}], "[", 
-             RowBox[{"[", "1", "]"}], "]"}], ",", " ", "rev"}], "}"}], "]"}], 
-         ",", " ", 
-         RowBox[{"PlotJoined", " ", "->", " ", "False"}], ",", " ", 
+             RowBox[{"Transpose", "[", "v", "]"}], "\\[LeftDoubleBracket]", 
+             " ", "1", " ", "\\[RightDoubleBracket]"}], ",", " ", "rev"}], 
+           "}"}], "]"}], ",", " ", 
+         RowBox[{"Joined", " ", "->", " ", "False"}], ",", " ", 
          RowBox[{"AxesLabel", " ", "->", " ", 
           RowBox[{"{", 
            RowBox[{"xLabel", ",", " ", "yLabel"}], "}"}]}], ",", " ", "\n", 
@@ -232,10 +232,10 @@ values are to be printed\>\""}], "\n",
           RowBox[{"{", 
            RowBox[{
             RowBox[{
-             RowBox[{"Transpose", "[", "v", "]"}], "[", 
-             RowBox[{"[", "1", "]"}], "]"}], ",", " ", "imv"}], "}"}], "]"}], 
-         ",", " ", "\n", "      ", 
-         RowBox[{"PlotJoined", " ", "->", " ", "False"}], ",", " ", 
+             RowBox[{"Transpose", "[", "v", "]"}], "\\[LeftDoubleBracket]", 
+             " ", "1", " ", "\\[RightDoubleBracket]"}], ",", " ", "imv"}], 
+           "}"}], "]"}], ",", " ", "\n", "      ", 
+         RowBox[{"Joined", " ", "->", " ", "False"}], ",", " ", 
          RowBox[{"DisplayFunction", " ", "->", " ", "Identity"}], ",", " ", 
          RowBox[{"PlotStyle", " ", "->", " ", 
           RowBox[{"{", 
@@ -261,14 +261,16 @@ values are to be printed\>\""}], "\n",
      RowBox[{"n", " ", "=", " ", 
       RowBox[{
        RowBox[{"Length", "[", 
-        RowBox[{"v", "[", 
-         RowBox[{"[", "1", "]"}], "]"}], "]"}], " ", "-", " ", "1"}]}], ";", 
-     " ", 
+        RowBox[{
+        "v", "\\[LeftDoubleBracket]", " ", "1", " ", 
+         "\\[RightDoubleBracket]"}], "]"}], " ", "-", " ", "1"}]}], ";", " ", 
+     
      RowBox[{"vt", " ", "=", " ", 
       RowBox[{"Transpose", "[", "v", "]"}]}], ";", " ", 
      RowBox[{"xv", " ", "=", " ", 
-      RowBox[{"vt", "[", 
-       RowBox[{"[", "1", "]"}], "]"}]}], ";", " ", 
+      RowBox[{
+      "vt", "\\[LeftDoubleBracket]", " ", "1", " ", 
+       "\\[RightDoubleBracket]"}]}], ";", " ", 
      RowBox[{"nPts", " ", "=", " ", 
       RowBox[{"Length", "[", "xv", "]"}]}], ";", " ", "\n", "    ", 
      RowBox[{"color", " ", "=", " ", 
@@ -299,16 +301,14 @@ values are to be printed\>\""}], "\n",
          " ", 
          RowBox[{"vr", " ", "=", " ", 
           RowBox[{"Re", "[", 
-           RowBox[{"vt", "[", 
-            RowBox[{"[", 
-             RowBox[{"i", " ", "+", " ", "1"}], "]"}], "]"}], "]"}]}], ";", 
-         " ", 
+           RowBox[{"vt", "\\[LeftDoubleBracket]", " ", 
+            RowBox[{"i", " ", "+", " ", "1"}], " ", 
+            "\\[RightDoubleBracket]"}], "]"}]}], ";", " ", 
          RowBox[{"vi", " ", "=", " ", 
           RowBox[{"Im", "[", 
-           RowBox[{"vt", "[", 
-            RowBox[{"[", 
-             RowBox[{"i", " ", "+", " ", "1"}], "]"}], "]"}], "]"}]}], ";", 
-         " ", "\n", "       ", 
+           RowBox[{"vt", "\\[LeftDoubleBracket]", " ", 
+            RowBox[{"i", " ", "+", " ", "1"}], " ", 
+            "\\[RightDoubleBracket]"}], "]"}]}], ";", " ", "\n", "       ", 
          RowBox[{"{", 
           RowBox[{
            RowBox[{"ListPlot", "[", 
@@ -316,7 +316,7 @@ values are to be printed\>\""}], "\n",
              RowBox[{"Transpose", "[", 
               RowBox[{"{", 
                RowBox[{"xv", ",", " ", "vr"}], "}"}], "]"}], ",", " ", 
-             RowBox[{"PlotJoined", " ", "->", " ", "True"}], ",", " ", 
+             RowBox[{"Joined", " ", "->", " ", "True"}], ",", " ", 
              RowBox[{"AxesLabel", " ", "->", " ", 
               RowBox[{"{", 
                RowBox[{"xLabel", ",", " ", "yLabel"}], "}"}]}], ",", " ", 
@@ -325,8 +325,9 @@ values are to be printed\>\""}], "\n",
               RowBox[{"{", 
                RowBox[{
                 RowBox[{"Thickness", "[", "0.003", "]"}], ",", " ", 
-                RowBox[{"color", "[", 
-                 RowBox[{"[", "i0", "]"}], "]"}], ",", " ", 
+                RowBox[{
+                "color", "\\[LeftDoubleBracket]", " ", "i0", " ", 
+                 "\\[RightDoubleBracket]"}], ",", " ", 
                 RowBox[{"Dashing", "[", 
                  RowBox[{"{", "}"}], "]"}]}], "}"}]}], ",", " ", "opts", ",", 
              " ", 
@@ -337,7 +338,7 @@ values are to be printed\>\""}], "\n",
              RowBox[{"Transpose", "[", 
               RowBox[{"{", 
                RowBox[{"xv", ",", " ", "vi"}], "}"}], "]"}], ",", " ", 
-             RowBox[{"PlotJoined", " ", "->", " ", "True"}], ",", " ", 
+             RowBox[{"Joined", " ", "->", " ", "True"}], ",", " ", 
              RowBox[{"AxesLabel", " ", "->", " ", 
               RowBox[{"{", 
                RowBox[{"xLabel", ",", " ", "yLabel"}], "}"}]}], ",", " ", 
@@ -346,8 +347,9 @@ values are to be printed\>\""}], "\n",
               RowBox[{"{", 
                RowBox[{
                 RowBox[{"Thickness", "[", "0.003", "]"}], ",", " ", 
-                RowBox[{"color", "[", 
-                 RowBox[{"[", "i0", "]"}], "]"}], ",", " ", 
+                RowBox[{
+                "color", "\\[LeftDoubleBracket]", " ", "i0", " ", 
+                 "\\[RightDoubleBracket]"}], ",", " ", 
                 RowBox[{"Dashing", "[", 
                  RowBox[{"{", 
                   RowBox[{"0.02", ",", " ", "0.02"}], "}"}], "]"}]}], "}"}]}],
@@ -376,14 +378,16 @@ values are to be printed\>\""}], "\n",
      RowBox[{"n", " ", "=", " ", 
       RowBox[{
        RowBox[{"Length", "[", 
-        RowBox[{"v", "[", 
-         RowBox[{"[", "1", "]"}], "]"}], "]"}], " ", "-", " ", "1"}]}], ";", 
-     " ", 
+        RowBox[{
+        "v", "\\[LeftDoubleBracket]", " ", "1", " ", 
+         "\\[RightDoubleBracket]"}], "]"}], " ", "-", " ", "1"}]}], ";", " ", 
+     
      RowBox[{"vt", " ", "=", " ", 
       RowBox[{"Transpose", "[", "v", "]"}]}], ";", " ", 
      RowBox[{"xv", " ", "=", " ", 
-      RowBox[{"vt", "[", 
-       RowBox[{"[", "1", "]"}], "]"}]}], ";", " ", 
+      RowBox[{
+      "vt", "\\[LeftDoubleBracket]", " ", "1", " ", 
+       "\\[RightDoubleBracket]"}]}], ";", " ", 
      RowBox[{"nPts", " ", "=", " ", 
       RowBox[{"Length", "[", "xv", "]"}]}], ";", " ", "\n", "    ", 
      RowBox[{"style", " ", "=", " ", 
@@ -446,18 +450,18 @@ values are to be printed\>\""}], "\n",
            RowBox[{"Transpose", "[", 
             RowBox[{"{", 
              RowBox[{"xv", ",", " ", 
-              RowBox[{"vt", "[", 
-               RowBox[{"[", 
-                RowBox[{"i", " ", "+", " ", "1"}], "]"}], "]"}]}], "}"}], 
-            "]"}], ",", " ", 
-           RowBox[{"PlotJoined", " ", "->", " ", "True"}], ",", " ", "\n", 
+              RowBox[{"vt", "\\[LeftDoubleBracket]", " ", 
+               RowBox[{"i", " ", "+", " ", "1"}], " ", 
+               "\\[RightDoubleBracket]"}]}], "}"}], "]"}], ",", " ", 
+           RowBox[{"Joined", " ", "->", " ", "True"}], ",", " ", "\n", 
            "        ", 
            RowBox[{"AxesLabel", " ", "->", " ", 
             RowBox[{"{", 
              RowBox[{"xLabel", ",", " ", "yLabel"}], "}"}]}], ",", " ", 
            RowBox[{"PlotStyle", " ", "->", " ", 
-            RowBox[{"style", "[", 
-             RowBox[{"[", "i0", "]"}], "]"}]}], ",", " ", "opts", ",", " ", 
+            RowBox[{
+            "style", "\\[LeftDoubleBracket]", " ", "i0", " ", 
+             "\\[RightDoubleBracket]"}]}], ",", " ", "opts", ",", " ", 
            RowBox[{"DisplayFunction", " ", "->", " ", "Identity"}]}], "]"}]}],
          ",", " ", 
         RowBox[{"{", 
@@ -570,10 +574,12 @@ values are to be printed\>\""}], "\n",
        RowBox[{
         RowBox[{"Prepend", "[", 
          RowBox[{
-          RowBox[{"t0", "[", 
-           RowBox[{"[", "i", "]"}], "]"}], ",", " ", 
-          RowBox[{"tx", "[", 
-           RowBox[{"[", "i", "]"}], "]"}]}], "]"}], ",", " ", 
+          RowBox[{
+          "t0", "\\[LeftDoubleBracket]", " ", "i", " ", 
+           "\\[RightDoubleBracket]"}], ",", " ", 
+          RowBox[{
+          "tx", "\\[LeftDoubleBracket]", " ", "i", " ", 
+           "\\[RightDoubleBracket]"}]}], "]"}], ",", " ", 
         RowBox[{"{", 
          RowBox[{"i", ",", " ", "1", ",", " ", 
           RowBox[{"Length", "[", "tx", "]"}]}], "}"}]}], "]"}]}], ";", " ", 
@@ -591,22 +597,26 @@ values are to be printed\>\""}], "\n",
       RowBox[{"Array", "[", 
        RowBox[{"cont", ",", " ", "n"}], "]"}]}], ";", " ", 
      RowBox[{
-      RowBox[{"vout", "[", 
-       RowBox[{"[", "1", "]"}], "]"}], " ", "=", " ", 
-      RowBox[{"vin", "[", 
-       RowBox[{"[", "1", "]"}], "]"}]}], ";", " ", "\n", "    ", 
+      RowBox[{
+      "vout", "\\[LeftDoubleBracket]", " ", "1", " ", 
+       "\\[RightDoubleBracket]"}], " ", "=", " ", 
+      RowBox[{
+      "vin", "\\[LeftDoubleBracket]", " ", "1", " ", 
+       "\\[RightDoubleBracket]"}]}], ";", " ", "\n", "    ", 
      RowBox[{"Do", "[", 
       RowBox[{
        RowBox[{
-        RowBox[{"vout", "[", 
-         RowBox[{"[", "i", "]"}], "]"}], " ", "=", " ", 
+        RowBox[{
+        "vout", "\\[LeftDoubleBracket]", " ", "i", " ", 
+         "\\[RightDoubleBracket]"}], " ", "=", " ", 
         RowBox[{"cSort", "[", 
          RowBox[{
-          RowBox[{"vout", "[", 
-           RowBox[{"[", 
-            RowBox[{"i", " ", "-", " ", "1"}], "]"}], "]"}], ",", " ", 
-          RowBox[{"vin", "[", 
-           RowBox[{"[", "i", "]"}], "]"}]}], "]"}]}], ",", " ", 
+          RowBox[{"vout", "\\[LeftDoubleBracket]", " ", 
+           RowBox[{"i", " ", "-", " ", "1"}], " ", "\\[RightDoubleBracket]"}],
+           ",", " ", 
+          RowBox[{
+          "vin", "\\[LeftDoubleBracket]", " ", "i", " ", 
+           "\\[RightDoubleBracket]"}]}], "]"}]}], ",", " ", 
        RowBox[{"{", 
         RowBox[{"i", ",", " ", "2", ",", " ", "n"}], "}"}]}], "]"}], ";", " ",
       "vout"}]}], "]"}]}], "\n", 
@@ -630,37 +640,41 @@ values are to be printed\>\""}], "\n",
       RowBox[{
        RowBox[{
         RowBox[{"ref", " ", "=", " ", 
-         RowBox[{"v1", "[", 
-          RowBox[{"[", "i", "]"}], "]"}]}], ";", " ", 
+         RowBox[{
+         "v1", "\\[LeftDoubleBracket]", " ", "i", " ", 
+          "\\[RightDoubleBracket]"}]}], ";", " ", 
         RowBox[{"dt", " ", "=", " ", 
          RowBox[{"Table", "[", 
           RowBox[{
            RowBox[{"Abs", "[", 
             RowBox[{"ref", " ", "-", " ", 
-             RowBox[{"vtemp", "[", 
-              RowBox[{"[", "j", "]"}], "]"}]}], "]"}], ",", " ", 
+             RowBox[{
+             "vtemp", "\\[LeftDoubleBracket]", " ", "j", " ", 
+              "\\[RightDoubleBracket]"}]}], "]"}], ",", " ", 
            RowBox[{"{", 
             RowBox[{"j", ",", " ", "1", ",", " ", "n"}], "}"}]}], "]"}]}], 
         ";", " ", 
         RowBox[{"min", " ", "=", " ", 
          RowBox[{
-          RowBox[{"Sort", "[", "dt", "]"}], "[", 
-          RowBox[{"[", "1", "]"}], "]"}]}], ";", " ", "\n", "      ", 
+          RowBox[{"Sort", "[", "dt", "]"}], "\\[LeftDoubleBracket]", " ", "1",
+           " ", "\\[RightDoubleBracket]"}]}], ";", " ", "\n", "      ", 
         RowBox[{"i0", " ", "=", " ", 
          RowBox[{
           RowBox[{"Flatten", "[", 
            RowBox[{"Position", "[", 
-            RowBox[{"dt", ",", " ", "min"}], "]"}], "]"}], "[", 
-          RowBox[{"[", "1", "]"}], "]"}]}], ";", " ", 
+            RowBox[{"dt", ",", " ", "min"}], "]"}], "]"}], "\\[LeftDoubleBracket]",
+           " ", "1", " ", "\\[RightDoubleBracket]"}]}], ";", " ", 
         RowBox[{
-         RowBox[{"v", "[", 
-          RowBox[{"[", "i", "]"}], "]"}], " ", "=", " ", 
-         RowBox[{"v2", "[", 
-          RowBox[{"[", "i0", "]"}], "]"}]}], ";", " ", 
+         RowBox[{
+         "v", "\\[LeftDoubleBracket]", " ", "i", " ", 
+          "\\[RightDoubleBracket]"}], " ", "=", " ", 
+         RowBox[{
+         "v2", "\\[LeftDoubleBracket]", " ", "i0", " ", 
+          "\\[RightDoubleBracket]"}]}], ";", " ", 
         RowBox[{
-         RowBox[{"vtemp", "[", 
-          RowBox[{"[", "i0", "]"}], "]"}], " ", "=", " ", "Infinity"}]}], ",",
-        " ", 
+         RowBox[{
+         "vtemp", "\\[LeftDoubleBracket]", " ", "i0", " ", 
+          "\\[RightDoubleBracket]"}], " ", "=", " ", "Infinity"}]}], ",", " ", 
        RowBox[{"{", 
         RowBox[{"i", ",", " ", "1", ",", " ", "n"}], "}"}]}], "]"}], ";", " ",
       "v"}]}], "]"}]}], "\n", 
@@ -671,18 +685,19 @@ values are to be printed\>\""}], "\n",
  CellChangeTimes->{{3.786020055619506*^9, 3.7860200631363077`*^9}, 
    3.786020138961617*^9, {3.8286169726383657`*^9, 3.828616978187674*^9}, {
    3.828703392330752*^9, 3.8287034080496693`*^9}, {3.828706553963272*^9, 
-   3.8287065563191023`*^9}},
+   3.8287065563191023`*^9}, {3.871832869459407*^9, 3.871832884643733*^9}, {
+   3.871832914930608*^9, 3.871832914938386*^9}, 3.871902403941296*^9},
  ShowSpecialCharacters->False,
- CellLabel->
-  "In[285]:=",ExpressionUUID->"287d2f60-ba54-4142-9dc1-e1e5a5eb77f8"],
+ CellLabel->"In[76]:=",ExpressionUUID->"287d2f60-ba54-4142-9dc1-e1e5a5eb77f8"],
 
 Cell[BoxData["\<\"PlotPack`\"\>"], "Output",
  CellChangeTimes->{{3.7860200556997013`*^9, 3.78602006321039*^9}, 
    3.786020139032638*^9, {3.786020451346039*^9, 3.786020451639295*^9}, {
    3.8287034217322903`*^9, 3.828703421927655*^9}, {3.863032090216284*^9, 
-   3.8630320904779167`*^9}},
- CellLabel->
-  "Out[285]=",ExpressionUUID->"c223f115-c6d6-4f43-8bd6-30d1e7b77b8a"],
+   3.8630320904779167`*^9}, {3.871829616323935*^9, 3.8718296164495564`*^9}, 
+   3.8718329249895267`*^9, 3.8718335851749897`*^9, {3.871938693695147*^9, 
+   3.871938693779262*^9}},
+ CellLabel->"Out[76]=",ExpressionUUID->"6701cdbf-c568-47d7-8e13-bca04737e49e"],
 
 Cell[BoxData["\<\"ComplexListPlot[v_List,xLabel_String,yLabel_String,opts___] \
 Plots real and imaginary parts of a complex curve from a list v of the \
@@ -692,9 +707,10 @@ built in function ListPlot. Standard graphics options can be included\"\>"], \
  CellChangeTimes->{{3.7860200556997013`*^9, 3.78602006321039*^9}, 
    3.786020139032638*^9, {3.786020451346039*^9, 3.786020451639295*^9}, {
    3.8287034217322903`*^9, 3.828703421927655*^9}, {3.863032090216284*^9, 
-   3.863032090479596*^9}},
- CellLabel->
-  "Out[286]=",ExpressionUUID->"925789de-63ee-4319-b020-c90dc3dcf7e2"],
+   3.8630320904779167`*^9}, {3.871829616323935*^9, 3.8718296164495564`*^9}, 
+   3.8718329249895267`*^9, 3.8718335851749897`*^9, {3.871938693695147*^9, 
+   3.871938693781008*^9}},
+ CellLabel->"Out[77]=",ExpressionUUID->"4e84f0a4-0eff-4a98-b306-b15768adee1f"],
 
 Cell[BoxData["\<\"ComplexListPlot[v_List,xLabel_String,yLabel_String,opts___] \
 Plots real and imaginary parts of a complex curve from a list v of the \
@@ -704,9 +720,10 @@ built in function ListPlot. Same as ComplexListPlot but points are not joined\
  CellChangeTimes->{{3.7860200556997013`*^9, 3.78602006321039*^9}, 
    3.786020139032638*^9, {3.786020451346039*^9, 3.786020451639295*^9}, {
    3.8287034217322903`*^9, 3.828703421927655*^9}, {3.863032090216284*^9, 
-   3.863032090481595*^9}},
- CellLabel->
-  "Out[287]=",ExpressionUUID->"0dcd29b5-5f36-4ba3-a54f-57f388ba8142"],
+   3.8630320904779167`*^9}, {3.871829616323935*^9, 3.8718296164495564`*^9}, 
+   3.8718329249895267`*^9, 3.8718335851749897`*^9, {3.871938693695147*^9, 
+   3.87193869378266*^9}},
+ CellLabel->"Out[78]=",ExpressionUUID->"e78e6267-940b-493e-a1d0-f1f838e8cade"],
 
 Cell[BoxData["\<\"ComplexVectorListPlot[v_List,xLabel_String,yLabel_String,\
 opts___] Plots real and imaginary parts of a family of complex curves from a \
@@ -717,21 +734,23 @@ included\"\>"], "Output",
  CellChangeTimes->{{3.7860200556997013`*^9, 3.78602006321039*^9}, 
    3.786020139032638*^9, {3.786020451346039*^9, 3.786020451639295*^9}, {
    3.8287034217322903`*^9, 3.828703421927655*^9}, {3.863032090216284*^9, 
-   3.863032090483593*^9}},
- CellLabel->
-  "Out[288]=",ExpressionUUID->"e4bd4bb9-95af-4c8a-b551-3b1369eb123a"],
+   3.8630320904779167`*^9}, {3.871829616323935*^9, 3.8718296164495564`*^9}, 
+   3.8718329249895267`*^9, 3.8718335851749897`*^9, {3.871938693695147*^9, 
+   3.871938693784358*^9}},
+ CellLabel->"Out[79]=",ExpressionUUID->"b077de75-180f-435d-aac7-f6201c77ac9d"],
 
-Cell[BoxData["\<\"ComplexVectorListPlot[v_List,xLabel_String,yLabel_String,\
-opts___] Plots family of n curves from a list v of the form v= \
+Cell[BoxData["\<\"VectorListPlot[v_List,xLabel_String,yLabel_String,opts___] \
+Plots family of n curves from a list v of the form v= \
 {{x1,y1[1],y1[2],...y1[N]},{x2,y2[1],y2[2],...y2[N]},...}. It uses the \
 built-in function ListPlot. Standard graphics options can be included\"\>"], \
 "Output",
  CellChangeTimes->{{3.7860200556997013`*^9, 3.78602006321039*^9}, 
    3.786020139032638*^9, {3.786020451346039*^9, 3.786020451639295*^9}, {
    3.8287034217322903`*^9, 3.828703421927655*^9}, {3.863032090216284*^9, 
-   3.863032090485941*^9}},
- CellLabel->
-  "Out[289]=",ExpressionUUID->"1709b398-1ecf-45c7-bf27-c4f1ac8cb54b"],
+   3.8630320904779167`*^9}, {3.871829616323935*^9, 3.8718296164495564`*^9}, 
+   3.8718329249895267`*^9, 3.8718335851749897`*^9, {3.871938693695147*^9, 
+   3.8719386937862377`*^9}},
+ CellLabel->"Out[80]=",ExpressionUUID->"970e96d8-0f97-4f49-8a5e-347e50eefd92"],
 
 Cell[BoxData["\<\"ZeroContourPlot[v_List,xRange_List,yRange_List,opts___] \
 Plots the Re[v]=0 (->red) and Im[v]=0 (->blue)contours for  a rectangular MxN \
@@ -744,9 +763,10 @@ the axes\"\>"], "Output",
  CellChangeTimes->{{3.7860200556997013`*^9, 3.78602006321039*^9}, 
    3.786020139032638*^9, {3.786020451346039*^9, 3.786020451639295*^9}, {
    3.8287034217322903`*^9, 3.828703421927655*^9}, {3.863032090216284*^9, 
-   3.8630320904927464`*^9}},
- CellLabel->
-  "Out[290]=",ExpressionUUID->"243081f5-9785-4947-b606-8f6d481fcfff"],
+   3.8630320904779167`*^9}, {3.871829616323935*^9, 3.8718296164495564`*^9}, 
+   3.8718329249895267`*^9, 3.8718335851749897`*^9, {3.871938693695147*^9, 
+   3.871938693788089*^9}},
+ CellLabel->"Out[81]=",ExpressionUUID->"d2f41c44-7dcb-4373-ad18-dafacdadf1c1"],
 
 Cell[BoxData["\<\"ComplexZeroContourPlot[v_List,xRange_List,yRange_List,opts__\
 _] Plots the Re[v]=0 (->red) and Im[v]=0 (->blue)contours for  a rectangular \
@@ -759,9 +779,10 @@ the axes\"\>"], "Output",
  CellChangeTimes->{{3.7860200556997013`*^9, 3.78602006321039*^9}, 
    3.786020139032638*^9, {3.786020451346039*^9, 3.786020451639295*^9}, {
    3.8287034217322903`*^9, 3.828703421927655*^9}, {3.863032090216284*^9, 
-   3.8630320904956923`*^9}},
- CellLabel->
-  "Out[291]=",ExpressionUUID->"6d595967-3940-4a74-9ecb-3676f206e2b1"],
+   3.8630320904779167`*^9}, {3.871829616323935*^9, 3.8718296164495564`*^9}, 
+   3.8718329249895267`*^9, 3.8718335851749897`*^9, {3.871938693695147*^9, 
+   3.871938693789761*^9}},
+ CellLabel->"Out[82]=",ExpressionUUID->"faa15234-a694-416a-be25-8cc72700b134"],
 
 Cell[BoxData["\<\"rootSort[v_List] Sorts lists of \
 form{{x1,roots1},{x2,roots2}....{xn,rootsn}} so as to try to maintain \
@@ -769,9 +790,10 @@ continuity of roots.\"\>"], "Output",
  CellChangeTimes->{{3.7860200556997013`*^9, 3.78602006321039*^9}, 
    3.786020139032638*^9, {3.786020451346039*^9, 3.786020451639295*^9}, {
    3.8287034217322903`*^9, 3.828703421927655*^9}, {3.863032090216284*^9, 
-   3.863032090498467*^9}},
- CellLabel->
-  "Out[292]=",ExpressionUUID->"601bf0d1-0bcf-4f41-918e-b23b0b7ffe14"],
+   3.8630320904779167`*^9}, {3.871829616323935*^9, 3.8718296164495564`*^9}, 
+   3.8718329249895267`*^9, 3.8718335851749897`*^9, {3.871938693695147*^9, 
+   3.871938693791237*^9}},
+ CellLabel->"Out[83]=",ExpressionUUID->"f477666b-d955-4d9c-9d39-45d548511556"],
 
 Cell[BoxData["\<\"paramPrint[x_List] gives a convenient way of printing a \
 list of parameters just by passing a list of the symbol names whose names and \
@@ -779,32 +801,36 @@ values are to be printed\"\>"], "Output",
  CellChangeTimes->{{3.7860200556997013`*^9, 3.78602006321039*^9}, 
    3.786020139032638*^9, {3.786020451346039*^9, 3.786020451639295*^9}, {
    3.8287034217322903`*^9, 3.828703421927655*^9}, {3.863032090216284*^9, 
-   3.863032090500566*^9}},
- CellLabel->
-  "Out[293]=",ExpressionUUID->"eb90a807-ac2c-497d-95a1-b17d52134270"],
+   3.8630320904779167`*^9}, {3.871829616323935*^9, 3.8718296164495564`*^9}, 
+   3.8718329249895267`*^9, 3.8718335851749897`*^9, {3.871938693695147*^9, 
+   3.871938693792636*^9}},
+ CellLabel->"Out[84]=",ExpressionUUID->"53258c4f-b577-4cd5-89ba-0f1e5674a32e"],
 
 Cell[BoxData["\<\"PlotPack`Private`\"\>"], "Output",
  CellChangeTimes->{{3.7860200556997013`*^9, 3.78602006321039*^9}, 
    3.786020139032638*^9, {3.786020451346039*^9, 3.786020451639295*^9}, {
    3.8287034217322903`*^9, 3.828703421927655*^9}, {3.863032090216284*^9, 
-   3.863032090502698*^9}},
- CellLabel->
-  "Out[300]=",ExpressionUUID->"dfa46544-24ec-4b01-b237-8e466fcf45b6"],
+   3.8630320904779167`*^9}, {3.871829616323935*^9, 3.8718296164495564`*^9}, 
+   3.8718329249895267`*^9, 3.8718335851749897`*^9, {3.871938693695147*^9, 
+   3.871938693793998*^9}},
+ CellLabel->"Out[91]=",ExpressionUUID->"2633a98e-0d65-4045-9e2a-737c1fc8ab8d"],
 
 Cell[BoxData["\<\"PlotPack`Private`\"\>"], "Output",
  CellChangeTimes->{{3.7860200556997013`*^9, 3.78602006321039*^9}, 
    3.786020139032638*^9, {3.786020451346039*^9, 3.786020451639295*^9}, {
    3.8287034217322903`*^9, 3.828703421927655*^9}, {3.863032090216284*^9, 
-   3.863032090504591*^9}},
+   3.8630320904779167`*^9}, {3.871829616323935*^9, 3.8718296164495564`*^9}, 
+   3.8718329249895267`*^9, 3.8718335851749897`*^9, {3.871938693695147*^9, 
+   3.871938693795292*^9}},
  CellLabel->
-  "Out[310]=",ExpressionUUID->"e7ef549c-1d5b-428a-b170-e43246c3e990"]
+  "Out[101]=",ExpressionUUID->"57037822-2b08-4a02-81b0-d773bd990412"]
 }, Open  ]]
 },
 AutoGeneratedPackage->Automatic,
 WindowSize->{1055, 624},
-WindowMargins->{{Automatic, -1015}, {Automatic, 0}},
+WindowMargins->{{139, Automatic}, {127, Automatic}},
 PrivateNotebookOptions->{"VersionedStylesheet"->{"Default.nb"[8.] -> False}},
-FrontEndVersion->"12.2 for Mac OS X x86 (64-bit) (December 12, 2020)",
+FrontEndVersion->"13.1 for Mac OS X ARM (64-bit) (June 16, 2022)",
 StyleDefinitions->"Default.nb",
 ExpressionUUID->"cbc43b95-1b7d-481b-8f4a-24195d679fc8"
 ]
@@ -820,19 +846,19 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[580, 22, 26839, 654, 1769, "Input",ExpressionUUID->"287d2f60-ba54-4142-9dc1-e1e5a5eb77f8",
+Cell[580, 22, 28061, 668, 1769, "Input",ExpressionUUID->"287d2f60-ba54-4142-9dc1-e1e5a5eb77f8",
  InitializationCell->True],
-Cell[27422, 678, 370, 6, 34, "Output",ExpressionUUID->"c223f115-c6d6-4f43-8bd6-30d1e7b77b8a"],
-Cell[27795, 686, 644, 10, 77, "Output",ExpressionUUID->"925789de-63ee-4319-b020-c90dc3dcf7e2"],
-Cell[28442, 698, 652, 10, 77, "Output",ExpressionUUID->"0dcd29b5-5f36-4ba3-a54f-57f388ba8142"],
-Cell[29097, 710, 670, 11, 77, "Output",ExpressionUUID->"e4bd4bb9-95af-4c8a-b551-3b1369eb123a"],
-Cell[29770, 723, 627, 10, 77, "Output",ExpressionUUID->"1709b398-1ecf-45c7-bf27-c4f1ac8cb54b"],
-Cell[30400, 735, 841, 13, 98, "Output",ExpressionUUID->"243081f5-9785-4947-b606-8f6d481fcfff"],
-Cell[31244, 750, 851, 13, 119, "Output",ExpressionUUID->"6d595967-3940-4a74-9ecb-3676f206e2b1"],
-Cell[32098, 765, 485, 8, 56, "Output",ExpressionUUID->"601bf0d1-0bcf-4f41-918e-b23b0b7ffe14"],
-Cell[32586, 775, 521, 8, 56, "Output",ExpressionUUID->"eb90a807-ac2c-497d-95a1-b17d52134270"],
-Cell[33110, 785, 376, 6, 34, "Output",ExpressionUUID->"dfa46544-24ec-4b01-b237-8e466fcf45b6"],
-Cell[33489, 793, 376, 6, 34, "Output",ExpressionUUID->"e7ef549c-1d5b-428a-b170-e43246c3e990"]
+Cell[28644, 692, 516, 7, 34, "Output",ExpressionUUID->"6701cdbf-c568-47d7-8e13-bca04737e49e"],
+Cell[29163, 701, 792, 11, 77, "Output",ExpressionUUID->"4e84f0a4-0eff-4a98-b306-b15768adee1f"],
+Cell[29958, 714, 799, 11, 77, "Output",ExpressionUUID->"e78e6267-940b-493e-a1d0-f1f838e8cade"],
+Cell[30760, 727, 818, 12, 77, "Output",ExpressionUUID->"b077de75-180f-435d-aac7-f6201c77ac9d"],
+Cell[31581, 741, 770, 11, 77, "Output",ExpressionUUID->"970e96d8-0f97-4f49-8a5e-347e50eefd92"],
+Cell[32354, 754, 987, 14, 98, "Output",ExpressionUUID->"d2f41c44-7dcb-4373-ad18-dafacdadf1c1"],
+Cell[33344, 770, 997, 14, 119, "Output",ExpressionUUID->"faa15234-a694-416a-be25-8cc72700b134"],
+Cell[34344, 786, 633, 9, 56, "Output",ExpressionUUID->"f477666b-d955-4d9c-9d39-45d548511556"],
+Cell[34980, 797, 669, 9, 56, "Output",ExpressionUUID->"53258c4f-b577-4cd5-89ba-0f1e5674a32e"],
+Cell[35652, 808, 524, 7, 34, "Output",ExpressionUUID->"2633a98e-0d65-4045-9e2a-737c1fc8ab8d"],
+Cell[36179, 817, 528, 8, 34, "Output",ExpressionUUID->"57037822-2b08-4a02-81b0-d773bd990412"]
 }, Open  ]]
 }
 ]
