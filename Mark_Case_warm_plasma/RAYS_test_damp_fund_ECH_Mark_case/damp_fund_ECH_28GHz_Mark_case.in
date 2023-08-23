@@ -1,0 +1,49 @@
+ &diagnostics_list
+  verbosity=3,
+  run_description='ECH in slab geometry 28Ghz'
+  run_label='damp_fun_ECH_fast-mode'
+  integrate_eq_gradients=.false.
+/
+ &species_list
+ n0=0.02e20,
+ spec_name(0) = 'electron',
+ spec_model(0) = 'cold',
+ t0s_eV(0)=1.0e3 ,
+ spec_name(1) = 'deuterium',
+ spec_model(1) = 'cold',
+ t0s_eV(1)=1.0e3 ,
+ eta(1)=1.
+/
+ &rf_list
+  frf=28.e9,
+  k0_sign = 1
+  wave_mode='fast'
+  ray_dispersion_model='cold',
+/
+ &damping_list
+  damping_model='no_damp'
+/
+ &equilibrium_list
+ equilib_model='slab',
+/
+ &slab_eq_list
+  bx_prof_model='zero',
+  by_prof_model='zero',
+  bz_prof_model='linear_2',
+  bz0=0.95,
+  by0 = 0.,
+  dBzdx = 1.0
+  dens_prof_model='constant',
+  t_prof_model=2*'constant'
+  rmaj=1.05,
+  rmin=0.95,
+  xmin = 0.95
+  xmax = 1.05
+  ymin = -0.5
+  ymax = 0.5
+  zmin = -1.
+  zmax = 1.
+/
+
+
+

@@ -1,0 +1,15 @@
+ &component_test_list
+  test_name = 'damping_slab'
+/
+ &damping_slab_test_list
+  damping_model = 'damp_fund_ECH',
+  n_xpoints = 101,
+  xmin = 0.95,
+  xmax = 1.05,
+  n_nz_points = 1,
+  nz_min = 0.2,
+  nz_max = 0.4
+/
+
+
+
